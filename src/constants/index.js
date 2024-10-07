@@ -659,8 +659,8 @@ export const projects = [
   {
     id: "project-7",
     title: "Portfolio",
-    github: "https://github.com/mittal-parth/personal-portfolio",
-    link: "https://japneetsingh.netlify.app/",
+    github: "https://github.com/Orcus01/Portfolio",
+    link: "https://japneet-singh.netlify.app/",
     image: portfolio,
     content: "Personal portfolio website with React and Tailwind CSS.",
     stack: [
