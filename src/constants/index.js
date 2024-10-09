@@ -93,8 +93,8 @@ import {
 
 import { DiCss3, DiJava, DiMsqlServer, DiRuby } from "react-icons/di";
 
-export const resumeLink = "https://drive.google.com/file/d/1vkxyMDB5_KpMwt4QXFgT2aqdRizr8Czh/view?usp=sharing";
-export const repoLink = "https://github.com/mittal-parth/personal-portfolio";
+export const resumeLink = "https://drive.google.com/file/d/1seIzvglknS2yg1_-ltpYTZYMKc4Svq3Y/view?usp=sharing";
+export const repoLink = "https://github.com/Orcus01/Portfolio";
 
 export const callToAction = "https://www.linkedin.com/in/japneet--singh";
 
