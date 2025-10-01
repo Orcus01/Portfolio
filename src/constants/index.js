@@ -445,8 +445,8 @@ export const projects = [
   {
     id: "project-1",
     title: "Kissan Konnect",
-    github: "https://github.com/ayush4345/Comicify.ai",
-    link: "https://comicify-ai.vercel.app/",
+    github: "https://github.com/Orcus01/Kissan_Konnect",
+    link: "https://github.com/Orcus01/Kissan_Konnect",
     image: greentrust,
     content:
       "Connects Farmers and other Plant Producers to detect plant diseases and give the cure for them.",
@@ -481,8 +481,8 @@ export const projects = [
   {
     id: "project-2",
     title: "webUS Builderz",
-    github: "https://github.com/mittal-parth/GreenTrust",
-    link: "https://green-trust-fantom.netlify.app/",
+    github: "/",
+    link: "/",
     image: greentrust,
     content:
       "webUS Builderz is a series of projects that include Online Resume and Portfolio Builder and an E-commerce website.",
@@ -517,8 +517,8 @@ export const projects = [
   {
     id: "project-3",
     title: "ParkCar",
-    github: "https://github.com/CommanderAstern/ChargeSwap",
-    link: "https://devfolio.co/projects/chargeswap-3527",
+    github: "/",
+    link: "/",
     image: chargeswap,
     content:
         "ParkCar is a automated car parking space app that uses realtime parking manager and provides integrated payment's gateway",
@@ -590,7 +590,7 @@ export const projects = [
     id: "project-5",
     title: "Uniride",
     github: "",
-    link: "http://recruitment.cu.ac.in/",
+    link: "",
     image: recruitment,
     content:
       "Uniride is a car pooling system that allows different teachers and students to pool their cars and bikes vacant seats and earn money.",
@@ -626,7 +626,7 @@ export const projects = [
     id: "project-6",
     title: "Evento",
     github: "",
-    link: "http://cdc.cu.ac.in/",
+    link: "",
     image: cdc,
     content:
       "Evento is an event publishing website that helps different socities to publish, manage and organize their events and also bring participation through community portal and even take payments",
