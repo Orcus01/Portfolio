@@ -25,7 +25,8 @@ import {
   dennisivy,
   manipal,
   icon,
-  ethforall
+  ethforall,
+  
 } from "../assets";
 
 import {
@@ -93,7 +94,7 @@ import {
 
 import { DiCss3, DiJava, DiMsqlServer, DiRuby } from "react-icons/di";
 
-export const resumeLink = "https://drive.google.com/file/d/1seIzvglknS2yg1_-ltpYTZYMKc4Svq3Y/view?usp=sharing";
+export const resumeLink = "https://drive.google.com/file/d/1JL30cc8lWjbb6KQrhas8iC8EYzp-qWvu/view?usp=sharing";
 export const repoLink = "https://github.com/Orcus01/Portfolio";
 
 export const callToAction = "https://www.linkedin.com/in/japneet--singh";
@@ -133,7 +134,7 @@ export const educationList = [
     degree: "Bachelor of Engineering",
     duration: "August 2021 - June 2025",
     content1: "Computer Science and Engineering",
-    content2: "CGPA: 7.98",
+    content2: "CGPA: 8.02",
   },
   {
     id: "education-2",
@@ -143,83 +144,84 @@ export const educationList = [
     duration: "2020 - 2021",
     content1: "Percentage: 95.4",
   },
+  {
+    id: "education-2",
+    icon: srap,
+    title: "Shri Ram Ashram Public School",
+    degree: "Matriculation",
+    duration: "2018 - 2019",
+    content1: "Percentage: 86.4",
+  },
 ];
 
 export const achievements = [
   {
     id: "a-1",
-    icon: ethglobal,
-    event: "ETHIndia'22 | World's Largest Ethereum Hackathon",
-    position: "Winner",
-    content1: "Top 12 winners among 20k+ registrations",
-    content2: "One of Polygon's Best Public Goods",
-    content3: "Best Module on Biconomy SDK",
-    article: "https://www.thehindu.com/news/cities/Mangalore/cu-iiit-delhi-team-makes-it-to-top-12-winners-in-ethindia-22/article66238923.ece",
-    project: "https://devfolio.co/projects/chargeswap-3527",
-    youtube: "https://youtu.be/9rieTya8Yds?t=3908",
+    icon: ieee,
+    event: "IEEE Xtreme 18.0",
+    position: "Top 50 in India, Top 150 Globally",
+    content1: "Achieved top global and national ranks in one of the toughest 24-hour programming competitions.",
+    content2: "Showcased strong problem-solving and analytical coding skills.",
+    content3: "",
+    article: "",
+    project: "",
+    youtube: "",
+    github: "",
   },
   {
     id: "a-2",
-    icon: polkadot,
-    event: "Polkadot Hackathon: Europe Edition",
-    position: "2nd Runner Up in the ink! Smart Contract Category",
-    content1: "Built GreenTrust offering a novel solution for obtaining certification in organic farming.",
+    icon: ieee,
+    event: "NULL VOID Coding Competition",
+    position: "4th Prize",
+    content1: "Secured 4th place in a competitive national-level coding contest.",
     content2: "",
     content3: "",
-    github: "https://github.com/pranav2305/GreenTrust",
+    article: "",
+    project: "",
+    youtube: "",
+    github: "",
   },
   {
     id: "a-3",
-    icon: lightspeed,
-    event: "Warpspeed by Lightspeed",
-    position: "1st Runner Up",
-    content1: "1st Runner Up Overall by Lightspeed among 107 hackers",
-    content2: "Top 3 projects using Replit",
-    content3: "1st Runner Up by Amazon Web Services (AWS)",
-    article: "https://shorturl.at/fhjsT",
+    icon: ieee,
+    event: "IEEE Delhi Section",
+    position: "Outstanding WIE Student Volunteer Award 2024",
+    content1: "Recognized for contributions to IEEE Women in Engineering initiatives.",
+    content2: "",
+    content3: "",
+    article: "",
+    project: "",
+    youtube: "",
+    github: "",
   },
   {
     id: "a-4",
-    icon: dennisivy,
-    event: "September Hackathon by Dennis Ivy",
-    position: "Winner",
-    content1: "Rated the best portfolio website among 450+ participants across the globe.",
-    content2: "",
+    icon: ieee,
+    event: "Vegathon - CDAC",
+    position: "1st Prize",
+    content1: "Won 1st prize at VEGA Processor Hackathon.",
+    content2: "Developed an innovative solution using VEGA processor technology.",
     content3: "",
-    youtube: "https://www.youtube.com/watch?v=X2473En3h_o&t=5278s",
-    project: "https://japneetsingh.netlify.app/",
+    article: "",
+    project: "",
+    youtube: "",
+    github: "",
   },
   {
     id: "a-5",
-    icon: manipal,
-    event: "Manipal Hackathon'22",
-    position: "Consolation Prize",
-    content1: "Top 10 among 500+ teams across India",
-    content2: "Developed a cross-platform mobile application to address the problem of social cohesion.",
-    content3: "",
-    article: "https://shorturl.at/exEIQ",
-  },
-  {
-    id: "a-6",
-    icon: icon,
-    event: "ICON Hyperbuild Hackathon",
-    position: "Honorable Mention",
-    content1: "Honorable Mention among 655 participants across the globe in a 3 month-long online hackathon.",
-    content2: "",
-    content3: "",
-    project: "https://devpost.com/software/green-trust-xj2w6g",
-  },
-  {
-    id: "a-7",
-    icon: ethforall,
-    event: "ETHForAll 2023",
-    position: "Top 3 Superfluid Projects",
-    content1: "Bounty winners among 430 projects in ETHGlobal's largest online hackathon.",
-    content2: "",
-    content3: "",
-    project: "https://devfolio.co/projects/green-trust-ed14",
+    icon: ieee,
+    event: "Publication - IEEE SSITCON 2024",
+    position: "Published Paper",
+    content1: "Kissan Konnect: AI-Powered Plant Disease Control System.",
+    content2: "Developed an intelligent diagnosis system using CNNs to identify plant diseases with high accuracy.",
+    content3: "Integrated a mobile interface for farmers to capture images and receive real-time analysis & treatment suggestions.",
+    article: "https://ieeexplore.ieee.org/document/10796969",
+    project: "",
+    youtube: "",
+    github: "",
   },
 ];
+
 
 
 export const skills = [
@@ -769,82 +771,107 @@ export const stats = [
 
 export const extraCurricular = [
   {
-    organisation: "Devfolio",
-    title: "UniDAO Lead",
-    duration: "December 2021 - Present",
+    organisation: "IEEE PES CUSB",
+    title: "Vice Chairperson",
+    duration: "Apr 2024 - Present",
     content: [
       {
-        text: "Selected among 5 students across the country to lead the initiative and grow the culture of Blockchain and Ethereum, powered by Devfolio.",
-        link: "https://www.linkedin.com/feed/update/urn:li:activity:7097977924686942209/",
-      },
-      {
-        text: "Led a cohort of 37 selected students over 6 weeks to learn and build in the Ethereum ecosystem.",
-        link: "https://www.linkedin.com/feed/update/urn:li:activity:7095310520282480641/",
-      },
-    ],
-    logo: devfolio,
-  },
-  {
-    organisation: "Google Developer Student Club, cu",
-    title: "Co-Chair",
-    duration: "December 2021 - Present",
-    content: [
-      {
-        text: "Started HackClub to promote and spread the culture of Hackathons in the college. 20+ hackathons particiaptions, 15+ wins over the year.",
+        text: "Led the IEEE PES CUSB team as Vice Chairperson, overseeing technical workshops and seminars.",
         link: "",
       },
       {
-        text: "Co-designed and developed the official website of Incident, cu with 15K+ visitors",
-        link: "https://incident.cu.ac.in/",
-      },
-    ],
-    logo: gdsc,
-  },
-  {
-    organisation: "Genesis, cu",
-    title: "Competitions Head",
-    duration: "Sep 2021 - Present",
-    content: [
-      {
-        text: "Qualified for the nationals of Indian Hip Hop Dance Championship",
+        text: "Organised multiple events and initiatives to enhance student participation and technical exposure.",
         link: "",
       },
       {
-        text: "Won 7 inter-college solo dance competitions",
+        text: "Managed overall responsibilities and coordination between student members and faculty.",
         link: "",
-      },
-    ],
-    logo: genesis,
-  },
-  {
-    organisation: "ieee, cu",
-    title: "Tutor",
-    duration: "Jan 2022 - Jan 2022",
-    content: [
-      {
-        text: "Mentored 150+ students in a month-long Web Development and Ruby on Rails Bootcamp",
-        link: "https://github.com/ieee-cu/ieee-RoR-Bootcamp-2021",
       },
     ],
     logo: ieee,
   },
   {
-    organisation: "E-Cell, cu",
-    title: "Executive Member",
-    duration: "Sep 2021 - Apr 2022",
+    organisation: "Google Developer Groups Cloud, Chandigarh",
+    title: "Technical Volunteer",
+    duration: "Mar 2024 - Dec 2024",
     content: [
       {
-        text: "Organised the season 3 of the E-Cell cu Podcast",
-        link: "https://www.youtube.com/watch?v=uA-Yrk6bVDc",
+        text: "Organized Google I/O Extended and DevFest events in Chandigarh, engaging students and professionals.",
+        link: "",
       },
       {
-        text: "Member of the Sponsorship and E-Talks team for E-Summit'22",
+        text: "Facilitated hands-on workshops and technical sessions on Google Cloud technologies.",
+        link: "",
+      },
+      {
+        text: "Supported event logistics and technical setups to ensure smooth execution of developer events.",
         link: "",
       },
     ],
-    logo: ecell,
+    logo: gdsc, // use ieee for now; replace with gdgLogo when ready
+  },
+  {
+    organisation: "IEEE Computer Society CUSB",
+    title: "Secretary",
+    duration: "Aug 2023 - Apr 2024",
+    content: [
+      {
+        text: "Handled documentation, scheduling, and reporting for society activities and meetings.",
+        link: "",
+      },
+      {
+        text: "Coordinated technical events and student outreach programs, boosting member engagement.",
+        link: "",
+      },
+      {
+        text: "Ensured smooth communication and collaboration within the core committee.",
+        link: "",
+      },
+    ],
+    logo: ieee,
+  },
+  {
+    organisation: "IEEE Photonics Society CUSB",
+    title: "Web Developer",
+    duration: "Apr 2023 - Aug 2023",
+    content: [
+      {
+        text: "Developed and maintained the official website for the IEEE Photonics Society CUSB.",
+        link: "",
+      },
+      {
+        text: "Collaborated with faculty and student members to integrate event details and publications online.",
+        link: "",
+      },
+      {
+        text: "Improved the UI/UX of the website to increase accessibility and usability for members.",
+        link: "",
+      },
+    ],
+    logo: ieee,
+  },
+  {
+    organisation: "IEEE Richard E Merwin Scholarship",
+    title: "Reviewer",
+    duration: "Fall Cycle - 2023",
+    content: [
+      {
+        text: "Reviewed applicant profiles for the prestigious IEEE Richard E Merwin Scholarship.",
+        link: "",
+      },
+      {
+        text: "Collaborated with IEEE REM Scholarship committee to shortlist deserving candidates.",
+        link: "",
+      },
+      {
+        text: "Gained insights into leadership evaluation and global student volunteer initiatives.",
+        link: "",
+      },
+    ],
+    logo: ieee,
   },
 ];
+
 
 export const socialMedia = [
   {
