@@ -15,17 +15,19 @@ import {
   Achievements,
 } from "./components";
 
+import BackgroundParticles from "./components/BackgroundParticles.jsx";
+
 const App = () => {
   const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1200);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
-    // A div to wrap the entire application
     <div className="bg-primary w-full overflow-hidden">
       <AnimatePresence>
         {isLoading ? (
@@ -37,18 +39,25 @@ const App = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.75, delay: 0.5 }}
           >
+            {/* Navbar */}
             <div className={`${styles.paddingX} ${styles.flexCenter}`}>
               <div className={`${styles.boxWidth}`}>
                 <Navbar />
               </div>
             </div>
 
-            <div className={`bg-primary ${styles.flexStart}`}>
+            {/* Hero Section with Particles */}
+            <div
+              className={`bg-primary ${styles.flexStart} relative`}
+              style={{ minHeight: "100vh" }} // full-screen hero
+            >
+              <BackgroundParticles /> {/* animated background */}
               <div className={`${styles.boxWidth}`}>
                 <Hero />
               </div>
             </div>
 
+            {/* Skills + Education */}
             <div
               className={`bg-primary ${styles.flexCenter} ${styles.paddingX}`}
             >
@@ -57,7 +66,11 @@ const App = () => {
                 <Education />
               </div>
             </div>
+
+            {/* Achievements */}
             <Achievements />
+
+            {/* Projects + Extra Curricular */}
             <div
               className={`bg-primary ${styles.flexCenter} ${styles.paddingX}`}
             >
@@ -66,6 +79,8 @@ const App = () => {
                 <ExtraCurricular />
               </div>
             </div>
+
+            {/* Footer */}
             <Footer />
           </motion.section>
         )}
