@@ -4,7 +4,6 @@ import Lottie from "react-lottie-player";
 import animationData from "../lotties/person-coding.json";
 import { aboutMe } from "../constants";
 
-
 // lottie config
 const defaultOptions = {
   loop: true,
@@ -19,7 +18,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className={`flex md:flex-row flex-col ${styles.paddingY}`}
+      className={`flex md:flex-row flex-col ${styles.paddingY} pt-20 md:pt-28`} // 👈 Added top padding
     >
       <div
         className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}
@@ -47,7 +46,7 @@ const Hero = () => {
       <div
         className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative`}
       >
-        <div className="relative z-index-[5] h-[90%] w-[85%]">
+        <div className="relative z-[5] h-[90%] w-[85%]">
           <Lottie {...defaultOptions} />
         </div>
         <div className="absolute z-[1] w-[50%] h-[50%] rounded-full bottom-40 white__gradient"></div>
