@@ -1,49 +1,28 @@
-import Particles from "react-tsparticles";
+// src/components/BackgroundParticles.jsx
+import React from "react";
 
-export default function BackgroundParticles() {
+/**
+ * Non-intrusive background beams.
+ * - absolute & pointer-events-none so it doesn't affect layout or clicks
+ * - z-0 so it sits below content that you mark z-10
+ */
+const BackgroundParticles = ({ className = "" }) => {
   return (
-    <Particles
-      id="tsparticles"
-      options={{
-        background: {
-          color: "transparent", // ✅ keep your theme background
-        },
-        fpsLimit: 60,
-        particles: {
-          number: { value: 60, density: { enable: true, area: 800 } },
-          color: { value: "#00f5d4" }, // ✅ neon cyan
-          links: {
-            enable: true,
-            color: "#00f5d4",
-            distance: 150,
-            opacity: 0.4,
-            width: 1,
-          },
-          move: { enable: true, speed: 1, outModes: { default: "out" } },
-          opacity: { value: 0.6 },
-          size: { value: { min: 2, max: 4 } },
-        },
-        interactivity: {
-          detectsOn: "window", // ✅ detect mouse/touch without blocking UI
-          events: {
-            onHover: { enable: true, mode: "repulse" }, // particles move away on hover/touch
-            resize: true,
-          },
-          modes: {
-            repulse: { distance: 100, duration: 0.4 },
-          },
-        },
-        detectRetina: true,
-      }}
-      style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-        zIndex: 0,            // ✅ behind your content
-        pointerEvents: "none" // ✅ buttons/links stay clickable
-      }}
-    />
+    <div
+      aria-hidden="true"
+      className={`absolute inset-0 z-0 pointer-events-none overflow-hidden ${className}`}
+    >
+      {/* soft blurred glow layer */}
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-900 via-slate-900 to-black opacity-60 blur-3xl" />
+
+      {/* animated beams */}
+      <div className="absolute inset-0">
+        <div className="absolute left-[-50%] w-[200%] top-[22%] h-[2px] bg-gradient-to-r from-pink-400 to-indigo-500 opacity-40 animate-slide-6s" />
+        <div className="absolute left-[-50%] w-[200%] top-[50%] h-[2px] bg-gradient-to-r from-violet-400 to-pink-400 opacity-30 animate-slide-10s" />
+        <div className="absolute left-[-50%] w-[200%] top-[78%] h-[2px] bg-gradient-to-r from-cyan-400 to-blue-500 opacity-20 animate-slide-14s" />
+      </div>
+    </div>
   );
-}
+};
+
+export default BackgroundParticles;
