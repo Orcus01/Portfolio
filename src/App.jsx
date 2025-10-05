@@ -15,8 +15,7 @@ import {
   Achievements,
 } from "./components";
 
-// 🌈 Import Exploding Beams Background
-import { BackgroundBeamsWithCollision } from "./components/ui/shadcn-io/background-beams-with-collision";
+import BackgroundParticles from "./components/BackgroundParticles.jsx";
 
 const App = () => {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -29,7 +28,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="bg-primary w-full overflow-hidden relative min-h-screen">
+    <div className="bg-primary w-full overflow-hidden">
       <AnimatePresence>
         {isLoading ? (
           <Loading key="loading" />
@@ -40,28 +39,25 @@ const App = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.75, delay: 0.5 }}
           >
-            {/* 🧭 Navbar */}
+            {/* Navbar */}
             <div className={`${styles.paddingX} ${styles.flexCenter}`}>
               <div className={`${styles.boxWidth}`}>
                 <Navbar />
               </div>
             </div>
 
-            {/* 💫 Hero Section with Exploding Beams */}
+            {/* Hero Section with Particles */}
             <div
-              className={`bg-primary relative flex flex-col justify-center`}
-              style={{ minHeight: "100vh" }}
+              className={`bg-primary ${styles.flexStart} relative`}
+              style={{ minHeight: "100vh" }} // full-screen hero
             >
-              {/* Background animation */}
-              <BackgroundBeamsWithCollision className="absolute inset-0 -z-10" />
-
-              {/* Hero content */}
-              <div className={`${styles.boxWidth} relative z-20`}>
+              <BackgroundParticles /> {/* animated background */}
+              <div className={`${styles.boxWidth}`}>
                 <Hero />
               </div>
             </div>
 
-            {/* ⚙️ Skills & Education */}
+            {/* Skills + Education */}
             <div
               className={`bg-primary ${styles.flexCenter} ${styles.paddingX}`}
             >
@@ -71,10 +67,10 @@ const App = () => {
               </div>
             </div>
 
-            {/* 🏆 Achievements */}
+            {/* Achievements */}
             <Achievements />
 
-            {/* 🚀 Projects & Extra Curricular */}
+            {/* Projects + Extra Curricular */}
             <div
               className={`bg-primary ${styles.flexCenter} ${styles.paddingX}`}
             >
@@ -84,7 +80,7 @@ const App = () => {
               </div>
             </div>
 
-            {/* 🦶 Footer */}
+            {/* Footer */}
             <Footer />
           </motion.section>
         )}
