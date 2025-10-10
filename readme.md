@@ -8,7 +8,6 @@
    <br>
 
 ## Tech Stack 🧰
-Japneet Singh - Portfolio
 
 <li>Frameworks</li>
 
