@@ -8,7 +8,7 @@
    <br>
 
 ## Tech Stack 🧰
-Japneet
+
 <li>Frameworks</li>
 
 - [ReactJS](https://reactjs.org/)
