@@ -6,7 +6,7 @@
 
 
    <br>
-Japneet
+
 ## Tech Stack 🧰
 <li>Frameworks</li>
 
