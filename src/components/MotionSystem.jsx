@@ -1,0 +1,6 @@
+import React from 'react';
+import {motion,useScroll,useSpring,useReducedMotion} from 'framer-motion';
+
+export function PageProgress(){const{scrollYProgress}=useScroll();const scaleX=useSpring(scrollYProgress,{stiffness:100,damping:30,restDelta:.001});return <motion.div className="page-progress" style={{scaleX}} aria-hidden="true"/>}
+export function Reveal({children,className='',delay=0}){const reduce=useReducedMotion();return <motion.div className={className} initial={reduce?false:{opacity:0,y:30}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:.12}} transition={{duration:reduce?0:.65,delay:reduce?0:delay,ease:[.22,1,.36,1]}}>{children}</motion.div>}
+export function useCardTilt(){const reduce=useReducedMotion();return{onPointerMove:e=>{if(reduce||e.pointerType==='touch')return;const r=e.currentTarget.getBoundingClientRect();e.currentTarget.style.setProperty('--rx',`${-(e.clientY-r.top-r.height/2)/r.height*3}deg`);e.currentTarget.style.setProperty('--ry',`${(e.clientX-r.left-r.width/2)/r.width*3}deg`);e.currentTarget.style.setProperty('--spot-x',`${e.clientX-r.left}px`);e.currentTarget.style.setProperty('--spot-y',`${e.clientY-r.top}px`);},onPointerLeave:e=>{e.currentTarget.style.setProperty('--rx','0deg');e.currentTarget.style.setProperty('--ry','0deg');}}}

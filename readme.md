@@ -1,51 +1,54 @@
-<h1 align="center"> Personal Portfolio </h1>
+# Japneet Singh — Portfolio
 
-<img width="945" alt="image" src="./src/assets/home.png">
+Recruiter-focused Java and full-stack development portfolio.
 
-### Deployed link: https://japneet-singh.netlify.app/
+Live site: https://japneet-singh.netlify.app/
 
+## Content
 
-   <br>
-Japneet
-## Tech Stack 🧰
-<li>Frameworks</li>
+- Current Cognizant experience with Temenos Transact, Azure, and AWS.
+- Seats & Spaces, LabConnect (training), and Kissan Konnect project write-ups.
+- Expandable engineering notes and links to available source code, demos, and research.
+- Skills, education, certifications, achievements, and completed leadership roles.
+- Local resume PDF, keyboard navigation, reduced-motion support, and responsive layouts.
+- Black-and-silver hero: a single Canvas 2D point cloud morphs from a dot into JAPNEET, PORTFOLIO, and the existing portrait.
+- Replay, skip, and pause controls. Reduced-motion preferences render a static assembled portrait.
+- Canvas pixel ratio and particle counts are capped; animation stops when offscreen or the document is hidden.
 
-- [ReactJS](https://reactjs.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
+## Development
 
-<li>Libraries/Tools</li>
-    
-- [ViteJS](https://vitejs.dev/)
-- [React Icons](https://react-icons.github.io/react-icons")
-- [Framer](https://www.framer.com/)
-- [React Lottie](https://www.npmjs.com/package/react-lottie)
-- [Meraki UI](https://merakiui.com/components/)
+```sh
+npm ci
+npm run dev
+```
 
-<br/>
+## Production
 
-## Implemented Sections ☑️
+```sh
+npm run build
+npm run preview
+```
 
-- Hero Section
-- Skills & Experience
-- Education
-- Projects
-- Blogs
-- Open Source Contributions
-- Extra Curricular
-- Contact Me
+Netlify build command: `npm run build`. Publish directory: `dist`.
 
+## Updating content
 
+The active page and project content live in `src/App.jsx`. Styles are in `src/portfolio.css`, loaded after Tailwind's base styles in `src/main.jsx`. Page metadata is in `index.html`.
 
-## Installation Guide 🧑‍💻
+The resume is served from `public/Japneet_Singh_Resume.pdf`. Keep claims, dates, links, and the downloadable resume aligned when making updates. Older components and assets remain in the repository but are not mounted by the current app.
 
+No LeetCode or open-source contribution claims are displayed. Add them only when supported by the relevant public profiles or contributions.
 
-### Install required packages
+## Portrait animation
 
-- `npm install`
+`src/components/ParticleHero.jsx` samples the bundled approved portrait and text into point targets at runtime. The particles resolve into the full portrait image for clarity. No face-generation API, video, WebGL dependency, or external image request runs in the website. Update `src/assets/portrait-formal.webp` to change the source photo. Morph timing, particle counts, sampling, pointer interaction, and lifecycle cleanup live in that component; the visual treatment is in `src/portfolio.css`.
 
-### Run server
+The active portrait is an AI-assisted formal edit based on the user-approved reference and original identity photograph: a neutral expression, soft neutral studio lighting without blue enhancements, a light ivory open blazer over a black open-collar shirt, and broader balanced shoulders. The blazer matches the light fabric under the black turban. Targeted cheek grooming and thin-metal glasses are retained. The full image uses the same contain geometry as the particle sampler. Only the optimised transparent WebP is bundled by the active page.
 
-- `npm run dev`
+## Site interactions
 
-<br/>
-
+- `src/components/MotionSystem.jsx`: scroll reveals, page progress, reduced-motion handling, and fine-pointer card tilt.
+- `src/components/ProjectVisual.jsx`: the genuine Seats & Spaces screenshot plus clearly labelled architecture/research illustrations.
+- Project filters animate between personal, training, and research work. Engineering details use native accessible disclosures.
+- The experience timeline, skill chips, credential cards, and contact area include hover and scroll motion. CSS animations disable for reduced-motion preferences.
+- Framer Motion was already a project dependency and is now used by the active page.
