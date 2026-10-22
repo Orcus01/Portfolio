@@ -1,5 +1,5 @@
 import React from 'react';
-import portrait from './assets/profile-pic.jpeg';
+import ParticleHero from './components/ParticleHero';
 
 const github = 'https://github.com/Orcus01';
 const linkedin = 'https://www.linkedin.com/in/japneet--singh/';
@@ -62,16 +62,9 @@ export default function App(){
    </div>
   </nav></header>
   <main id="main" className="container">
-   <section className="hero" id="home">
-    <div className="hero-copy"><p className="eyebrow"><span className="status-dot"/>Open to SDE opportunities</p>
-     <h1>Hi, I’m Japneet.<br/>I build <em>the backend.</em><br/>And connect the rest.</h1>
-     <p className="hero-description">Java and full-stack developer working with Temenos Transact, Azure, and AWS at Cognizant. I build web applications with a focus on dependable APIs, data consistency, and clear user experiences.</p>
-     <div className="actions"><a className="button primary" href="#projects">Explore my work <span aria-hidden="true">↓</span></a><a className="button secondary" href="/Japneet_Singh_Resume.pdf" target="_blank" rel="noopener noreferrer">View resume <span aria-hidden="true">↗</span></a></div>
-     <div className="profile-links"><External href={github}>GitHub</External><External href={linkedin}>LinkedIn</External><a href="mailto:japneet.singh2024@gmail.com">Email ↗</a></div>
-    </div>
-    <aside className="hero-aside" aria-label="Profile"><div className="portrait-frame"><img src={portrait} alt="Japneet Singh" width="480" height="480" fetchPriority="high"/><div className="portrait-caption"><span>Based in India</span><span>Building for the web</span></div></div><div className="current-note"><span className="eyebrow">Currently</span><p>Programmer Analyst Trainee<br/><strong>Cognizant Technology Solutions</strong></p></div></aside>
-   </section>
+   <ParticleHero />
    <div className="evidence-strip"><div><strong>Java + Spring Boot</strong><span>Backend development</span></div><div><strong>Azure + AWS</strong><span>Cloud environment operations</span></div><div><strong>IEEE SSITCON 2024</strong><span>Published research</span></div></div>
+   <section className="developer-intro" aria-label="About Japneet"><p>Java and full-stack developer working with <strong>Temenos Transact, Azure, and AWS at Cognizant.</strong> I build web applications with a focus on dependable APIs, data consistency, and clear user experiences.</p><div><External href={github}>GitHub</External><External href={linkedin}>LinkedIn</External><a href="/Japneet_Singh_Resume.pdf" target="_blank" rel="noopener noreferrer">View resume ↗</a></div></section>
    <section id="projects" className="section"><SectionTitle number="01" eyebrow="Selected work" title="Built. Connected. Tested.">Three projects that show how I approach applications, integrations, and engineering decisions.</SectionTitle>
     <div className="project-list">{projects.map(project=><article className="project-card" key={project.id}>
      <div className="project-top"><span className="project-number">{project.number}</span><span className="project-type">{project.type}</span></div>
