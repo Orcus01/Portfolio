@@ -41,9 +41,9 @@ No LeetCode or open-source contribution claims are displayed. Add them only when
 
 ## Portrait animation
 
-`src/components/ParticleHero.jsx` samples the bundled editorial portrait and text into point targets at runtime. The particles resolve into the full portrait image for clarity. No face-generation API, video, WebGL dependency, or external image request runs in the website. Update `src/assets/portrait-editorial.webp` to change the source photo. Morph timing, particle counts, sampling, pointer interaction, and lifecycle cleanup live in that component; the visual treatment is in `src/portfolio.css`.
+`src/components/ParticleHero.jsx` samples the bundled natural portrait and text into point targets at runtime. The particles resolve into the full portrait image for clarity. No face-generation API, video, WebGL dependency, or external image request runs in the website. Update `src/assets/portrait-natural.webp` to change the source photo. Morph timing, particle counts, sampling, pointer interaction, and lifecycle cleanup live in that component; the visual treatment is in `src/portfolio.css`.
 
-The editorial portrait is an AI-assisted edit of Japneet's real photograph, made at his request. It includes a dark jacket, lighting, beard grooming, glasses alignment, and skin retouching; it is not a new camera photograph. Only the optimised transparent WebP is bundled. No private source-file path or original employment document is included.
+The portrait uses Japneet's original photograph with background extraction and light stray-beard-hair grooming only. Facial features, glasses, skin tone, expression, pose, turban, and beige shirt follow the original. The earlier synthetic editorial portrait was rejected and removed from the active site. Only the optimised transparent WebP is bundled; the private source-file path is not included.
 
 ## Site interactions
 
