@@ -1,5 +1,5 @@
 import React from 'react';
-import portrait from '../assets/portrait-natural.webp';
+import portrait from '../assets/portrait-approved.webp';
 
 const ease = t => t * t * (3 - 2 * t);
 const clamp = n => Math.max(0, Math.min(1, n));
