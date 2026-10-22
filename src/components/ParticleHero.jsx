@@ -1,5 +1,5 @@
 import React from 'react';
-import portrait from '../assets/profile-pic.jpeg';
+import portrait from '../assets/portrait-editorial.webp';
 
 const ease = t => t * t * (3 - 2 * t);
 const clamp = n => Math.max(0, Math.min(1, n));
@@ -45,7 +45,7 @@ export default function ParticleHero() {
    const w=img.naturalWidth*scale,h=img.naturalHeight*scale;
    sc.drawImage(img,(220-w)/2,(280-h)/2,w,h);
    const data=sc.getImageData(0,0,220,280).data,result=[];
-   const displayScale=Math.min(width*.75/220,height*.86/280,2.3);
+   const displayScale=Math.min(width*.68/220,height*.80/280,2);
    for(let y=0;y<280;y+=2)for(let x=0;x<220;x+=2){
     const i=(y*220+x)*4,r=data[i],g=data[i+1],b=data[i+2];
     if(data[i+3]<120 || (r>224&&g>224&&b>224))continue;
@@ -124,7 +124,7 @@ export default function ParticleHero() {
   <div className="hero-topline"><span>JAPNEET SINGH / SOFTWARE DEVELOPER</span><span className="hero-availability"><i/>Open to SDE opportunities</span></div>
   <div className="particle-stage">
    <canvas ref={canvasRef} className="portrait-particles" aria-hidden="true" />
-   {fallback&&<img className="portrait-fallback" src={portrait} alt=""/>}
+   <img className={`real-portrait ${fallback?"image-fallback":""}`} src={portrait} alt="Japneet Singh" fetchPriority="high"/>
    <div key={'intro-'+run} className="intro-word" aria-hidden="true">{'JAPNEET'.split('').map((letter,i)=><span key={i} style={{'--letter':i}}>{letter}</span>)}</div>
    <div className="silver-title" aria-hidden="true">PORTFOLIO</div>
    <div className="portrait-identity"><span>THE PERSON BEHIND THE CODE</span><strong>Japneet Singh.</strong></div>

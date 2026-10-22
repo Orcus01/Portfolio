@@ -1,5 +1,8 @@
 import React from 'react';
 import ParticleHero from './components/ParticleHero';
+import ProjectVisual from './components/ProjectVisual';
+import {PageProgress,Reveal,useCardTilt} from './components/MotionSystem';
+import {motion,AnimatePresence,useReducedMotion} from 'framer-motion';
 
 const github = 'https://github.com/Orcus01';
 const linkedin = 'https://www.linkedin.com/in/japneet--singh/';
@@ -48,10 +51,15 @@ const skills = [
   ['Cloud & delivery','Azure, AWS, Git, GitHub Actions, Postman, JUnit, Playwright'],
 ];
 function External({href,children,...props}) {return <a href={href} target="_blank" rel="noopener noreferrer" {...props}>{children}<span aria-hidden="true"> ↗</span></a>}
-function SectionTitle({number,eyebrow,title,children}) {return <div className="section-title"><div><span className="eyebrow">{number} / {eyebrow}</span><h2>{title}</h2></div>{children&&<p>{children}</p>}</div>}
+function SectionTitle({number,eyebrow,title,children}) {return <Reveal className="section-title"><div><span className="eyebrow">{number} / {eyebrow}</span><h2>{title}</h2></div>{children&&<p>{children}</p>}</Reveal>}
 export default function App(){
  const [menu,setMenu]=React.useState(false);
+ const [filter,setFilter]=React.useState('All work');
+ const reduce=useReducedMotion();
+ const tilt=useCardTilt();
+ const shown=projects.filter(p=>filter==='All work'||(filter==='Personal'&&p.id==='seats-spaces')||(filter==='Training'&&p.id==='labconnect')||(filter==='Research'&&p.id==='kissan-konnect'));
  return <>
+  <PageProgress/>
   <a className="skip-link" href="#main">Skip to content</a>
   <header className="header"><nav className="container nav" aria-label="Main navigation">
    <a className="wordmark" href="#home">JS<span>.</span><span className="wordmark-name">Japneet Singh</span></a>
@@ -66,25 +74,26 @@ export default function App(){
    <div className="evidence-strip"><div><strong>Java + Spring Boot</strong><span>Backend development</span></div><div><strong>Azure + AWS</strong><span>Cloud environment operations</span></div><div><strong>IEEE SSITCON 2024</strong><span>Published research</span></div></div>
    <section className="developer-intro" aria-label="About Japneet"><p>Java and full-stack developer working with <strong>Temenos Transact, Azure, and AWS at Cognizant.</strong> I build web applications with a focus on dependable APIs, data consistency, and clear user experiences.</p><div><External href={github}>GitHub</External><External href={linkedin}>LinkedIn</External><a href="/Japneet_Singh_Resume.pdf" target="_blank" rel="noopener noreferrer">View resume ↗</a></div></section>
    <section id="projects" className="section"><SectionTitle number="01" eyebrow="Selected work" title="Built. Connected. Tested.">Three projects that show how I approach applications, integrations, and engineering decisions.</SectionTitle>
-    <div className="project-list">{projects.map(project=><article className="project-card" key={project.id}>
-     <div className="project-top"><span className="project-number">{project.number}</span><span className="project-type">{project.type}</span></div>
+    <div className="project-filters" aria-label="Filter projects">{['All work','Personal','Training','Research'].map(label=><button key={label} aria-pressed={filter===label} onClick={()=>setFilter(label)}>{label}{filter===label&&<motion.span layoutId="filter-indicator" className="filter-indicator" transition={{type:'spring',bounce:.15,duration:.4}}/>}</button>)}</div>
+    <motion.div layout className={"project-list "+(shown.length===1?"single-result":"")}><AnimatePresence initial={false}>{shown.map(project=><motion.article layout key={project.id} className={'project-card project-'+project.id} initial={reduce?false:{opacity:0,y:35}} whileInView={{opacity:1,y:0}} exit={{opacity:0,scale:.97}} viewport={{once:true,amount:.08}} transition={{duration:reduce?0:.5}}>
+     <div className="project-card-inner" {...tilt}><ProjectVisual id={project.id}/><div className="project-body">
+     <div className="project-top"><span className="project-number">/{project.number}</span><span className="project-type">{project.type}</span></div>
      <h3>{project.name}</h3><p className="project-subtitle">{project.subtitle}</p><p className="project-description">{project.description}</p>
      <ul className="tags" aria-label="Technologies">{project.stack.map(item=><li key={item}>{item}</li>)}</ul>
-     {project.features.length>0&&<div className="feature-grid">{project.features.map(([label,text])=><div key={label}><h4>{label}</h4><p>{text}</p></div>)}</div>}
-     <div className="project-links">{project.links.map(link=><External key={link.href} href={link.href}>{link.label}</External>)}</div>
-     <details><summary>Engineering notes <span aria-hidden="true">+</span></summary><div className="case-study">{project.details.map(([label,text])=><div key={label}><h4>{label}</h4><p>{text}</p></div>)}</div></details>
-    </article>)}</div>
+     <div className="project-links">{project.links.map(link=><External key={link.href} href={link.href}>{link.label}</External>)}</div></div>
+     <details className="project-details"><summary>Explore the engineering <span aria-hidden="true">+</span></summary><div className="case-study">{project.features.map(([label,text])=><div key={label}><h4>{label}</h4><p>{text}</p></div>)}{project.details.map(([label,text])=><div key={label}><h4>{label}</h4><p>{text}</p></div>)}</div></details>
+     </div></motion.article>)}</AnimatePresence></motion.div>
    </section>
    <section id="experience" className="section"><SectionTitle number="02" eyebrow="Experience" title="Software meets real operations."/>
-    <div className="experience-row"><div><p className="eyebrow">Jan 2026 — Present</p><h3>Cognizant</h3><p className="muted">Chennai, India</p></div><div><h4>Programmer Analyst Trainee</h4><ul className="prose-list"><li>Configure and integrate Temenos Transact T24 and Transact AI COB environments; handle Close of Business operations.</li><li>Provision virtual machines and manage Azure and AWS resources, including allocation and cost optimisation.</li><li>Work with Azure Virtual Machine Scale Sets and Microsoft Foundry for cloud environment setup and resource management.</li></ul></div></div>
-    <div className="experience-row"><div><p className="eyebrow">Sep 2023 — Feb 2024</p><h3>Grownity</h3></div><div><h4>Application Developer Intern</h4><p>Worked on the mobile application using Flutter and Dart, developing frontend interfaces and contributing to the website with the team.</p></div></div>
+    <Reveal className="experience-row"><div><p className="eyebrow">Jan 2026 — Present</p><h3>Cognizant</h3><p className="muted">Chennai, India</p></div><div><h4>Programmer Analyst Trainee</h4><ul className="prose-list"><li>Configure and integrate Temenos Transact T24 and Transact AI COB environments; handle Close of Business operations.</li><li>Provision virtual machines and manage Azure and AWS resources, including allocation and cost optimisation.</li><li>Work with Azure Virtual Machine Scale Sets and Microsoft Foundry for cloud environment setup and resource management.</li></ul></div></Reveal>
+    <Reveal className="experience-row"><div><p className="eyebrow">Sep 2023 — Feb 2024</p><h3>Grownity</h3></div><div><h4>Application Developer Intern</h4><p>Worked on the mobile application using Flutter and Dart, developing frontend interfaces and contributing to the website with the team.</p></div></Reveal>
    </section>
-   <section id="skills" className="section"><SectionTitle number="03" eyebrow="Toolkit" title="The tools behind the work."/><div className="skills-grid">{skills.map(([label,text])=><div key={label}><h3>{label}</h3><p>{text}</p></div>)}</div></section>
-   <section id="credentials" className="section"><SectionTitle number="04" eyebrow="Beyond the code" title="A foundation in problem-solving."/><div className="credential-grid">
-    <div><h3>Achievements</h3><ul className="credential-list"><li><strong>Top 50 in India · Top 150 globally</strong><span>IEEE Xtreme 18.0</span></li><li><strong>1st Prize</strong><span>Vegathon · VEGA Processor Hackathon, CDAC</span></li><li><strong>4th Prize</strong><span>NULL VOID Coding Competition</span></li><li><strong>Outstanding WIE Student Volunteer Award</strong><span>IEEE Delhi Section · 2024</span></li></ul></div>
-    <div><h3>Education & certifications</h3><ul className="credential-list"><li><strong>B.E. in Computer Science</strong><span>Chandigarh University · 2021–2025 · CGPA 8.02/10</span></li><li><strong>Microsoft Certified: Azure Fundamentals</strong><span>AZ-900</span></li><li><strong>GitHub Copilot</strong><span>Certification</span></li></ul><h3 className="leadership-title">Leadership</h3><p className="muted">Vice Chairperson, IEEE PES CUSB · Apr 2024–Jun 2025</p><p className="muted">Secretary, IEEE CS CUSB · Aug 2023–Mar 2024</p></div>
-   </div></section>
-   <section id="contact" className="contact-section"><p className="eyebrow">Let’s build something useful</p><h2>Have an SDE opportunity?<br/><em>Let’s talk.</em></h2><a className="contact-email" href="mailto:japneet.singh2024@gmail.com">japneet.singh2024@gmail.com <span aria-hidden="true">↗</span></a><div className="profile-links"><External href={linkedin}>LinkedIn</External><External href={github}>GitHub</External><a href="/Japneet_Singh_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume ↗</a></div></section>
+   <section id="skills" className="section"><SectionTitle number="03" eyebrow="Toolkit" title="The tools behind the work."/><div className="skills-grid">{skills.map(([label,text],i)=><Reveal key={label} delay={i*.06} className="skill-orbit-card"><span className="skill-card-number">0{i+1}</span><h3>{label}</h3><div className="skill-chips">{text.split(', ').map((s,j)=><span key={s} style={{'--chip':j}}>{s}</span>)}</div></Reveal>)}</div></section>
+   <section id="credentials" className="section"><SectionTitle number="04" eyebrow="Beyond the code" title="A foundation in problem-solving."/><Reveal className="credential-grid">
+    <div><h3>Achievements</h3><ul className="credential-list"><motion.li initial={reduce?false:{opacity:0,x:-15}} whileInView={{opacity:1,x:0}} viewport={{once:true,amount:.3}} transition={{duration:.4}}><strong>Top 50 in India · Top 150 globally</strong><span>IEEE Xtreme 18.0</span></motion.li><motion.li initial={reduce?false:{opacity:0,x:-15}} whileInView={{opacity:1,x:0}} viewport={{once:true,amount:.3}} transition={{duration:.4}}><strong>1st Prize</strong><span>Vegathon · VEGA Processor Hackathon, CDAC</span></motion.li><motion.li initial={reduce?false:{opacity:0,x:-15}} whileInView={{opacity:1,x:0}} viewport={{once:true,amount:.3}} transition={{duration:.4}}><strong>4th Prize</strong><span>NULL VOID Coding Competition</span></motion.li><motion.li initial={reduce?false:{opacity:0,x:-15}} whileInView={{opacity:1,x:0}} viewport={{once:true,amount:.3}} transition={{duration:.4}}><strong>Outstanding WIE Student Volunteer Award</strong><span>IEEE Delhi Section · 2024</span></motion.li></ul></div>
+    <div><h3>Education & certifications</h3><ul className="credential-list"><motion.li initial={reduce?false:{opacity:0,x:-15}} whileInView={{opacity:1,x:0}} viewport={{once:true,amount:.3}} transition={{duration:.4}}><strong>B.E. in Computer Science</strong><span>Chandigarh University · 2021–2025 · CGPA 8.02/10</span></motion.li><motion.li initial={reduce?false:{opacity:0,x:-15}} whileInView={{opacity:1,x:0}} viewport={{once:true,amount:.3}} transition={{duration:.4}}><strong>Microsoft Certified: Azure Fundamentals</strong><span>AZ-900</span></motion.li><motion.li initial={reduce?false:{opacity:0,x:-15}} whileInView={{opacity:1,x:0}} viewport={{once:true,amount:.3}} transition={{duration:.4}}><strong>GitHub Copilot</strong><span>Certification</span></motion.li></ul><h3 className="leadership-title">Leadership</h3><p className="muted">Vice Chairperson, IEEE PES CUSB · Apr 2024–Jun 2025</p><p className="muted">Secretary, IEEE CS CUSB · Aug 2023–Mar 2024</p></div>
+   </Reveal></section>
+   <section id="contact" className="contact-section"><Reveal><p className="eyebrow">Let’s build something useful</p><h2>Have an SDE opportunity?<br/><em>Let’s talk.</em></h2><a className="contact-email" href="mailto:japneet.singh2024@gmail.com">japneet.singh2024@gmail.com <span aria-hidden="true">↗</span></a><div className="profile-links"><External href={linkedin}>LinkedIn</External><External href={github}>GitHub</External><a href="/Japneet_Singh_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume ↗</a></div></Reveal></section>
   </main><footer className="container footer"><span>Japneet Singh</span><span>Java. Cloud. Thoughtful software.</span><a href="#home">Back to top ↑</a></footer>
  </>;
 }

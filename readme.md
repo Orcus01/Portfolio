@@ -41,4 +41,14 @@ No LeetCode or open-source contribution claims are displayed. Add them only when
 
 ## Portrait animation
 
-`src/components/ParticleHero.jsx` samples the existing portrait and text into point targets at runtime. No face-generation service, video, WebGL dependency, or external image request is used. Update `src/assets/profile-pic.jpeg` to change the source photo. Morph timing, particle counts, sampling, pointer interaction, and lifecycle cleanup live in that component; the visual treatment is in `src/portfolio.css`.
+`src/components/ParticleHero.jsx` samples the bundled editorial portrait and text into point targets at runtime. The particles resolve into the full portrait image for clarity. No face-generation API, video, WebGL dependency, or external image request runs in the website. Update `src/assets/portrait-editorial.webp` to change the source photo. Morph timing, particle counts, sampling, pointer interaction, and lifecycle cleanup live in that component; the visual treatment is in `src/portfolio.css`.
+
+The editorial portrait is an AI-assisted edit of Japneet's real photograph, made at his request. It includes a dark jacket, lighting, beard grooming, glasses alignment, and skin retouching; it is not a new camera photograph. Only the optimised transparent WebP is bundled. No private source-file path or original employment document is included.
+
+## Site interactions
+
+- `src/components/MotionSystem.jsx`: scroll reveals, page progress, reduced-motion handling, and fine-pointer card tilt.
+- `src/components/ProjectVisual.jsx`: the genuine Seats & Spaces screenshot plus clearly labelled architecture/research illustrations.
+- Project filters animate between personal, training, and research work. Engineering details use native accessible disclosures.
+- The experience timeline, skill chips, credential cards, and contact area include hover and scroll motion. CSS animations disable for reduced-motion preferences.
+- Framer Motion was already a project dependency and is now used by the active page.
