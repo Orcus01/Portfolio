@@ -1,51 +1,37 @@
-<h1 align="center"> Personal Portfolio </h1>
+# Japneet Singh — Portfolio
 
-<img width="945" alt="image" src="./src/assets/home.png">
+Recruiter-focused Java and full-stack development portfolio.
 
-### Deployed link: https://japneet-singh.netlify.app/
+Live site: https://japneet-singh.netlify.app/
 
+## Content
 
-   <br>
-Japneet
-## Tech Stack 🧰
-<li>Frameworks</li>
+- Current Cognizant experience with Temenos Transact, Azure, and AWS.
+- Seats & Spaces, LabConnect (training), and Kissan Konnect project write-ups.
+- Expandable engineering notes and links to available source code, demos, and research.
+- Skills, education, certifications, achievements, and completed leadership roles.
+- Local resume PDF, keyboard navigation, reduced-motion support, and responsive layouts.
 
-- [ReactJS](https://reactjs.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
+## Development
 
-<li>Libraries/Tools</li>
-    
-- [ViteJS](https://vitejs.dev/)
-- [React Icons](https://react-icons.github.io/react-icons")
-- [Framer](https://www.framer.com/)
-- [React Lottie](https://www.npmjs.com/package/react-lottie)
-- [Meraki UI](https://merakiui.com/components/)
+```sh
+npm ci
+npm run dev
+```
 
-<br/>
+## Production
 
-## Implemented Sections ☑️
+```sh
+npm run build
+npm run preview
+```
 
-- Hero Section
-- Skills & Experience
-- Education
-- Projects
-- Blogs
-- Open Source Contributions
-- Extra Curricular
-- Contact Me
+Netlify build command: `npm run build`. Publish directory: `dist`.
 
+## Updating content
 
+The active page and project content live in `src/App.jsx`. Styles are in `src/portfolio.css`, loaded after Tailwind's base styles in `src/main.jsx`. Page metadata is in `index.html`.
 
-## Installation Guide 🧑‍💻
+The resume is served from `public/Japneet_Singh_Resume.pdf`. Keep claims, dates, links, and the downloadable resume aligned when making updates. Older components and assets remain in the repository but are not mounted by the current app.
 
-
-### Install required packages
-
-- `npm install`
-
-### Run server
-
-- `npm run dev`
-
-<br/>
-
+No LeetCode or open-source contribution claims are displayed. Add them only when supported by the relevant public profiles or contributions.
