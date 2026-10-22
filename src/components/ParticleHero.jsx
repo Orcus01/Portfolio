@@ -45,7 +45,10 @@ export default function ParticleHero() {
    const w=img.naturalWidth*scale,h=img.naturalHeight*scale;
    sc.drawImage(img,(220-w)/2,(280-h)/2,w,h);
    const data=sc.getImageData(0,0,220,280).data,result=[];
-   const displayScale=Math.min(width*.68/220,height*.80/280,2);
+   const displayScale=Math.min(width*(width<600?.78:.68)/220,height*.80/280,2);
+   // Keep the resolved photograph aligned with the point cloud at every aspect ratio.
+   canvas.parentElement.style.setProperty('--portrait-width',`${w*displayScale}px`);
+   canvas.parentElement.style.setProperty('--portrait-height',`${h*displayScale}px`);
    for(let y=0;y<280;y+=2)for(let x=0;x<220;x+=2){
     const i=(y*220+x)*4,r=data[i],g=data[i+1],b=data[i+2];
     if(data[i+3]<120 || (r>224&&g>224&&b>224))continue;

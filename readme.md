@@ -43,7 +43,7 @@ No LeetCode or open-source contribution claims are displayed. Add them only when
 
 `src/components/ParticleHero.jsx` samples the bundled approved portrait and text into point targets at runtime. The particles resolve into the full portrait image for clarity. No face-generation API, video, WebGL dependency, or external image request runs in the website. Update `src/assets/portrait-approved.webp` to change the source photo. Morph timing, particle counts, sampling, pointer interaction, and lifecycle cleanup live in that component; the visual treatment is in `src/portfolio.css`.
 
-The active portrait is an AI-assisted edit of the user-approved black-jacket reference: targeted upper-cheek grooming, slightly larger glasses of the same style, and a straight-on torso with broader shoulders. The active clothing is a fitted black open-collar shirt, chosen to show more of the neck. Facial identity, expression, turban, and lighting follow the approved reference. Only the optimised transparent WebP is bundled by the active page.
+The active portrait is an AI-assisted edit of the user-approved black-jacket reference: targeted upper-cheek grooming, slightly larger glasses of the same style, and a straight-on torso with broader shoulders. The active clothing is a charcoal blazer over a fitted black open-collar shirt, with a subtle closed-mouth smile and broader balanced shoulders. The resolved image uses the same contain geometry as the particle sampler to preserve its proportions at every viewport size. Facial identity, expression, turban, and lighting follow the approved reference. Only the optimised transparent WebP is bundled by the active page.
 
 ## Site interactions
 
