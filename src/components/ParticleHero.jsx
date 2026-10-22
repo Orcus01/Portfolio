@@ -1,5 +1,5 @@
 import React from 'react';
-import portrait from '../assets/portrait-approved.webp';
+import portrait from '../assets/portrait-formal.webp';
 
 const ease = t => t * t * (3 - 2 * t);
 const clamp = n => Math.max(0, Math.min(1, n));
@@ -80,7 +80,7 @@ export default function ParticleHero() {
    // A restrained ambient field, generated deterministically instead of a looping video.
    for(let i=0;i<(width<600?100:240);i++){
     const x=random(i+30000)*width,y=(random(i+32000)*height+(paused||reducedMotion?0:elapsed*1.4))%height;
-    ctx.fillStyle=`rgba(215,224,238,${.07+random(i+34000)*.22})`;ctx.fillRect(x,y,random(i+36000)> .93?1.5:.7,.7);
+    ctx.fillStyle=`rgba(228,228,228,${.07+random(i+34000)*.22})`;ctx.fillRect(x,y,random(i+36000)> .93?1.5:.7,.7);
    }
    let from,to,blend;
    if(final){from=face;to=face;blend=1;}
@@ -100,7 +100,7 @@ export default function ParticleHero() {
     const point=points[i];
     if(reducedMotion||paused){point.x=tx;point.y=ty;}else{point.x+=(tx-point.x)*.19;point.y+=(ty-point.y)*.19;}
     const c=Math.round(a.c+(b.c-a.c)*blend),size=width<600?1.35:1.75;
-    ctx.fillStyle=`rgba(${c},${c},${Math.min(255,c+7)},0.95)`;
+    ctx.fillStyle=`rgba(${c},${c},${c},0.95)`;
     ctx.fillRect(point.x,point.y,size,size);
    }
    if(!reducedMotion&&!paused)frame=requestAnimationFrame(draw);

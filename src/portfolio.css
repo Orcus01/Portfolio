@@ -22,3 +22,5 @@
 .real-portrait{filter:none}
 /* Use the same contain geometry as the particle sampler; never squeeze the shoulders. */
 .real-portrait{width:var(--portrait-width,auto);height:var(--portrait-height,80%);max-width:none;max-height:none}.real-portrait.image-fallback{max-width:80%;max-height:80%}
+/* Neutral studio direction for the portrait: no coloured glow behind the subject. */
+.particle-stage::before{background:radial-gradient(ellipse at 50% 50%,#ffffff06,transparent 65%)}
