@@ -47,6 +47,17 @@ const navigation = [
   ["contact", "Contact"],
 ];
 const external = { target: "_blank", rel: "noopener noreferrer" };
+function isBackdropClick(event) {
+  if (event.target !== event.currentTarget) return false;
+  const { left, right, top, bottom } =
+    event.currentTarget.getBoundingClientRect();
+  return (
+    event.clientX < left ||
+    event.clientX > right ||
+    event.clientY < top ||
+    event.clientY > bottom
+  );
+}
 function RevealSection({ children, className = "", ...props }) {
   const reduced = useReducedMotion();
   return (
@@ -241,7 +252,7 @@ function CursorCompanion() {
     const move = (event) => {
       x.set(event.clientX);
       y.set(event.clientY);
-      setHovered(Boolean(event.target.closest("a,button,input,summary")));
+      setHovered(Boolean(event.target?.closest?.("a,button,input,summary")));
     };
     const leave = () => {
       x.set(-200);
@@ -342,8 +353,8 @@ function PortraitExperience({ stage }) {
             <img
               src={avatar}
               alt="Illustrated Japneet Singh with a navy turban, full beard, glowing orange glasses and crossed arms"
-              width="1024"
-              height="1536"
+              width="1142"
+              height="1377"
               fetchpriority="high"
             />
             {!reduced && (
@@ -557,9 +568,13 @@ export default function App() {
   const [menu, setMenu] = useState(false);
   const [command, setCommand] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [copyFailed, setCopyFailed] = useState(false);
+  const menuTrigger = useRef(null);
   const [theme, setTheme] = useState(() => {
     try {
-      return localStorage.getItem("portfolio-theme-v2") || "dark";
+      return localStorage.getItem("portfolio-theme-v2") === "light"
+        ? "light"
+        : "dark";
     } catch {
       return "dark";
     }
@@ -576,21 +591,27 @@ export default function App() {
   }, [theme]);
   useEffect(() => {
     const handler = (e) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+      if (e.key === "Escape" && menu) {
+        setMenu(false);
+        menuTrigger.current?.focus();
+      }
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
         e.preventDefault();
         setCommand((v) => !v);
       }
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, []);
+  }, [menu]);
   useEffect(() => {
-    if (selected) detail.current?.showModal();
-    else detail.current?.close();
+    const dialog = detail.current;
+    if (selected && dialog && !dialog.open) dialog.showModal();
+    else if (!selected && dialog?.open) dialog.close();
   }, [selected]);
   useEffect(() => {
-    if (command) palette.current?.showModal();
-    else palette.current?.close();
+    const dialog = palette.current;
+    if (command && dialog && !dialog.open) dialog.showModal();
+    else if (!command && dialog?.open) dialog.close();
   }, [command]);
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -600,16 +621,27 @@ export default function App() {
         }),
       { rootMargin: "-15% 0px -60% 0px" },
     );
-    navigation.forEach(([id]) => {
+    [...navigation, ["recognition"], ["github"]].forEach(([id]) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
     return () => observer.disconnect();
   }, []);
   useEffect(() => {
-    document.body.style.overflow = selected || command || menu ? "hidden" : "";
+    const desktop = window.matchMedia("(min-width: 900px)");
+    const closeOnDesktop = () => {
+      if (desktop.matches) setMenu(false);
+    };
+    closeOnDesktop();
+    desktop.addEventListener("change", closeOnDesktop);
+    return () => desktop.removeEventListener("change", closeOnDesktop);
+  }, []);
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow =
+      selected || command || menu ? "hidden" : previousOverflow;
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousOverflow;
     };
   }, [selected, command, menu]);
   useEffect(() => () => clearTimeout(copyTimer.current), []);
@@ -617,18 +649,23 @@ export default function App() {
     try {
       await navigator.clipboard.writeText(profile.email);
       setCopied(true);
+      setCopyFailed(false);
       clearTimeout(copyTimer.current);
       copyTimer.current = setTimeout(() => setCopied(false), 2500);
     } catch {
-      window.location.href = `mailto:${profile.email}`;
+      setCopied(false);
+      setCopyFailed(true);
     }
   }
-  const visible = projects.filter(
-    (p) =>
-      (filter === "All" || p.category === filter) &&
-      `${p.title} ${p.stack.join(" ")} ${p.description}`
-        .toLowerCase()
-        .includes(query.toLowerCase()),
+  const normalizedQuery = query.trim().toLowerCase();
+  const searched = projects.filter((p) =>
+    [p.title, p.subtitle, p.description, ...p.stack, ...p.highlights]
+      .join(" ")
+      .toLowerCase()
+      .includes(normalizedQuery),
+  );
+  const visible = searched.filter(
+    (p) => filter === "All" || p.category === filter,
   );
   const jump = (id) => {
     setMenu(false);
@@ -688,6 +725,8 @@ export default function App() {
           <button
             className="icon-button menu-trigger"
             aria-label={menu ? "Close menu" : "Open menu"}
+            ref={menuTrigger}
+            aria-controls="mobile-navigation"
             aria-expanded={menu}
             onClick={() => setMenu(!menu)}
           >
@@ -696,7 +735,11 @@ export default function App() {
         </div>
       </header>
       {menu && (
-        <nav className="mobile-menu" aria-label="Mobile navigation">
+        <nav
+          id="mobile-navigation"
+          className="mobile-menu"
+          aria-label="Mobile navigation"
+        >
           {navigation.map(([id, label], i) => (
             <button key={id} onClick={() => jump(id)}>
               <small>0{i + 1}</small>
@@ -711,16 +754,6 @@ export default function App() {
       )}
       <main id="main">
         <PersonalHero />
-        <div className="ticker" aria-label="Areas of focus">
-          <span>FULL-STACK DEVELOPMENT</span>
-          <i>✳</i>
-          <span>CLOUD INFRASTRUCTURE</span>
-          <i>✳</i>
-          <span>APIs & MICROSERVICES</span>
-          <i>✳</i>
-          <span>CURIOUS BY DEFAULT</span>
-          <i>✳</i>
-        </div>
         <section id="work" className="section work-section">
           <SectionLabel number="01">SELECTED WORK</SectionLabel>
           <div className="section-heading">
@@ -743,7 +776,9 @@ export default function App() {
                   onClick={() => setFilter(f)}
                 >
                   {f}
-                  {f === "All" && <sup>04</sup>}
+                  {f === "All" && (
+                    <sup>{String(searched.length).padStart(2, "0")}</sup>
+                  )}
                 </button>
               ))}
             </div>
@@ -829,8 +864,8 @@ export default function App() {
               <img
                 src={avatar}
                 alt="Japneet Singh"
-                width="400"
-                height="400"
+                width="1142"
+                height="1377"
                 loading="lazy"
               />
               <div className="portrait-caption">
@@ -1092,6 +1127,11 @@ export default function App() {
                   {copied ? "Email copied" : "Copy email"}
                 </span>
               </button>
+              {copyFailed && (
+                <p className="copy-feedback" role="status">
+                  Copy unavailable. Select and copy the email address above.
+                </p>
+              )}
             </div>
             <div className="social-links">
               <a href={profile.github} {...external}>
@@ -1124,7 +1164,7 @@ export default function App() {
         onCancel={() => setSelected(null)}
         onClose={() => setSelected(null)}
         onClick={(e) => {
-          if (e.target === detail.current) setSelected(null);
+          if (isBackdropClick(e)) setSelected(null);
         }}
         aria-labelledby="detail-title"
       >
@@ -1192,7 +1232,7 @@ export default function App() {
         onCancel={() => setCommand(false)}
         onClose={() => setCommand(false)}
         onClick={(e) => {
-          if (e.target === palette.current) setCommand(false);
+          if (isBackdropClick(e)) setCommand(false);
         }}
         aria-labelledby="command-title"
       >

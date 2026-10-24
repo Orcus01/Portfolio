@@ -23,27 +23,27 @@ npm run preview
 
 ## Design components
 
-shadcn/ui configuration is in `components.json`. Components live in `src/components/ui`. The Magic UI registry is configured as `@magicui`; Blur Fade powers restrained entrance and project reveal animations and respects reduced motion. Theme tokens preserve the original Tailwind color names for compatibility with retained legacy components.
+shadcn/ui configuration is in `components.json`. Components live in `src/components/ui`. The Magic UI registry is configured as `@magicui`; Blur Fade powers restrained entrance and project reveal animations and respects reduced motion. Theme tokens are defined in `src/design.css`; the unused legacy components and dependencies have been removed.
 
 ## Validation
 
 Production build passes. Browser checks covered project category/search/empty states, project dialog opening/closing, engineering layer selection, theme persistence after reload, navigation dialog, mobile navigation, clipboard feedback, and desktop/mobile overflow. Latest tested viewports: 1440×1000 and 390×844.
 
-Changes are local; publishing is a separate action.
+The live site is published from the `gh-pages` branch. `main` contains the source.
 
-## Image assets
+## Image assets and motion
 
-The current hero uses the newer charcoal-blazer portrait from the resume chat, processed with built-in ImageGen for background removal. `src/assets/japneet-editorial.png` is the final transparent asset. Kissan Konnect and Raahi previews use actual screenshots from their public GitHub repositories. `src/design.css` contains the current visual direction; `src/index.css` holds shared base styles.
+The only portrait used is `src/assets/japneet-balanced-avatar.png`, edited with built-in ImageGen from the user-supplied avatar. The avatar appears in the hero and About section; there is no photo switch. Kissan Konnect and Raahi previews use screenshots from their public repositories.
 
-## Avatar and cinematic motion
+Pointer tilt, the portrait reveal, and the desktop hero-to-work slide respect reduced-motion preferences. The lower sections use staggered reveals, a scroll-linked career line, and restrained hover effects. Public repositories expand on demand.
 
-The hero defaults to the orange-lit avatar in `src/assets/japneet-avatar-navy.png`, generated with built-in ImageGen from Japneet's portrait and the user's supplied style reference. Avatar/Photo buttons switch appearances; the replay button repeats the camera shutter reveal. Motion adds pointer tilt, portrait scroll depth, sliding title words, and a pinned hero with Work sliding over it on desktop. At smaller viewports projects use normal flow. Reduced-motion settings disable large motion and the pinned hero transition.
+## Styles and responsiveness
 
-## Responsive layout corrections
+`src/index.css` holds base styles, `src/design.css` defines the visual direction and theme tokens, and `src/responsive.css` is the authoritative responsive/layout layer. These remain layered; some repeated selectors are intentional breakpoint and design overrides. The chair illustration is active project artwork, not unused CSS. Unused ticker and leaf rules have been removed.
 
-`src/responsive.css` is the authoritative layout layer: one gutter scale, full-width sections, contained grid columns, and normal-flow project rows. The hero-to-work transition pins the hero on sufficiently tall desktop displays; phones and reduced-motion users use normal flow. Cursor movement drives the portrait and trailing highlight for fine pointers. Both current portraits were rebuilt using the original `Japneet_Photo.JPG` as the facial reference, with navy turbans.
+Responsive geometry was checked at 320, 360, 390, 600, 768, 1024, 1440, 1920, and 2560 CSS pixels during the redesign. The latest regression checks cover mobile-menu Escape dismissal and desktop resize scroll recovery, search across details with surrounding whitespace, dialog padding/backdrop clicks, project modal opening/Escape, persisted light theme, and navigation through Recognition.
 
-Responsive geometry checked at 320, 360, 390, 600, 768, 1024, 1440, 1920, and 2560 CSS pixels. Project search, clearing, category filters, detail dialogs, photo/avatar switching, mobile navigation, and the hero overlap were checked in the browser.
+A startup script applies the saved theme before first paint. Rendering failures show a reload/contact fallback; event handlers still require their own guards. Unused source files were archived outside the repository before removal; tracked originals are also recoverable from Git history.
 
 ## GitHub Pages
 

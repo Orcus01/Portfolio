@@ -379,9 +379,6 @@ h2 em {
   align-items: center;
   gap: 10px;
 }
-.ticker {
-  display: none;
-}
 .section {
   max-width: 1280px;
   margin-left: auto;
@@ -556,13 +553,6 @@ h2 em {
 }
 .art-plant {
   background: #203e30;
-}
-.leaf {
-  width: 105px;
-  height: 160px;
-}
-.leaf-art > span {
-  font-size: 42px;
 }
 .art-raahi {
   background: #e6c6ad;
@@ -883,13 +873,6 @@ footer > .wordmark > .monogram {
   .chair {
     transform: translate(-50%, -50%) rotate(-12deg) scale(1);
   }
-  .leaf {
-    width: 75px;
-    height: 125px;
-  }
-  .leaf-art > span {
-    font-size: 30px;
-  }
   .about-section {
     padding-top: 60px;
   }
@@ -1169,13 +1152,6 @@ footer > .wordmark > .monogram {
   .lab-flow strong {
     width: 100px;
     height: 100px;
-  }
-  .leaf {
-    width: 85px;
-    height: 130px;
-  }
-  .leaf-art > span {
-    font-size: 33px;
   }
   .raahi-art {
     font-size: 110px;

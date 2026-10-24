@@ -7,34 +7,11 @@
   color: #242c25;
   background: #f4f3eb;
   font-synthesis: none;
-  --paper: #f4f3eb;
-  --ink: #242c25;
-  --muted: #656c62;
-  --line: #d1d4c7;
-  --soft: #e9ebdf;
-  --accent: #c64b2b;
-  --background: 60 29% 94%;
-  --foreground: 130 10% 16%;
-  --border: 80 13% 79%;
-  --ring: 12 65% 45%;
-  --ui-primary: 130 10% 16%;
-  --ui-primary-foreground: 60 29% 94%;
   --ui-secondary: 80 13% 87%;
   --accent-color: 80 13% 87%;
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --paper: #181e1a;
-  --ink: #edece2;
-  --muted: #a8afa4;
-  --line: #3b453c;
-  --soft: #242d25;
-  --accent: #ee8e68;
-  --background: 140 11% 11%;
-  --foreground: 60 25% 91%;
-  --border: 130 8% 25%;
-  --ui-primary: 60 25% 91%;
-  --ui-primary-foreground: 140 11% 11%;
 }
 * {
   box-sizing: border-box;
@@ -101,7 +78,6 @@ a svg {
 .drawing-caption,
 .layer-controls small,
 .layer-controls > button > span,
-.ticker,
 .art-index,
 .art-year,
 .project-stack,
@@ -408,24 +384,6 @@ em {
   top: 13px;
   margin: 0;
 }
-.ticker {
-  padding: 19px 5%;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  background: var(--soft);
-  font-size: 10px;
-  overflow: hidden;
-  white-space: nowrap;
-}
-.ticker i {
-  font-style: normal;
-  color: var(--accent);
-  font-size: 18px;
-  line-height: 1;
-}
 .section {
   padding: 95px 5% 0;
   scroll-margin-top: 15px;
@@ -663,39 +621,6 @@ h2 {
 .art-plant {
   background: #293d2e;
   color: #e1e9cb;
-}
-.leaf-art {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 22px;
-}
-.leaf {
-  width: 90px;
-  height: 140px;
-  border-radius: 100% 0 100% 0;
-  background: repeating-linear-gradient(
-    135deg,
-    #9cae77 0 15px,
-    #7d9460 16px 17px
-  );
-  transform: rotate(-20deg);
-}
-.leaf-art > span {
-  font-size: 37px;
-  line-height: 1.02;
-  letter-spacing: -2px;
-}
-.leaf-art small {
-  position: absolute;
-  bottom: 26px;
-  left: 26px;
-  font:
-    7px "DM Mono",
-    monospace;
-  letter-spacing: 2px;
 }
 .art-raahi {
   background: #e9d9c4;
@@ -1369,9 +1294,6 @@ dialog::backdrop {
   .social-links {
     gap: 15px;
   }
-  .ticker {
-    font-size: 8px;
-  }
   .hero-meta {
     font-size: 8px;
   }
@@ -1450,16 +1372,6 @@ dialog::backdrop {
   }
   .layer-controls button {
     padding-bottom: 25px;
-  }
-  .ticker {
-    padding: 17px 6%;
-    gap: 25px;
-    justify-content: flex-start;
-    font-size: 8px;
-  }
-  .ticker span:nth-of-type(n + 3),
-  .ticker i:nth-of-type(n + 2) {
-    display: none;
   }
   .section {
     padding: 65px 6% 0;
@@ -1700,13 +1612,6 @@ dialog::backdrop {
     height: 90px;
     font-size: 32px;
   }
-  .leaf {
-    width: 70px;
-    height: 115px;
-  }
-  .leaf-art > span {
-    font-size: 32px;
-  }
   .chair {
     transform: translate(-50%, -50%) rotate(-12deg) scale(0.9);
   }
@@ -1730,7 +1635,6 @@ dialog::backdrop {
 }
 @media print {
   .header-tools,
-  .ticker,
   .project-toolbar,
   .hero-actions,
   .system-drawing,
