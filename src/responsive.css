@@ -1,0 +1,1752 @@
+/* One spacing system for every section and every viewport. */
+:root {
+  --page-gutter: clamp(18px, 3.5vw, 88px);
+  --section-space: clamp(52px, 6vw, 110px);
+}
+html {
+  scroll-padding-top: 105px;
+}
+body {
+  overflow-x: clip;
+}
+main {
+  display: flow-root;
+  isolation: isolate;
+}
+main > * {
+  min-width: 0;
+}
+img,
+svg {
+  max-width: 100%;
+}
+.section,
+.hero.personal-hero,
+.contact-section {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: var(--page-gutter);
+}
+.section {
+  position: relative;
+  z-index: 2;
+  padding-top: var(--section-space);
+}
+.header {
+  width: calc(100% - var(--page-gutter) * 2);
+  max-width: none;
+  top: 16px;
+  height: 68px;
+  padding-inline: clamp(16px, 2vw, 40px);
+}
+.header nav {
+  gap: clamp(18px, 2.4vw, 45px);
+}
+.header nav a {
+  font-size: clamp(11px, 0.85vw, 15px);
+}
+.wordmark > .brand-name {
+  font-size: clamp(11px, 0.9vw, 15px);
+}
+.brand-name > small {
+  font-size: 7px;
+  letter-spacing: 1px;
+}
+.hero.personal-hero {
+  padding-top: 112px;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  overflow: clip;
+}
+.hero-meta {
+  font-size: clamp(8px, 0.65vw, 11px);
+}
+.personal-hero h1 {
+  font-size: clamp(42px, 9.6vw, 190px);
+  font-weight: 750;
+  letter-spacing: 0;
+  line-height: 1.05;
+  font-kerning: none;
+  font-variant-ligatures: none;
+  max-width: 100%;
+  margin: 25px 0 0;
+}
+.sliding-name {
+  gap: 0.17em;
+}
+.name-window {
+  min-width: 0;
+  letter-spacing: 0;
+}
+.name-window > span {
+  letter-spacing: 0;
+}
+.name-period {
+  letter-spacing: 0;
+}
+.portrait-stage {
+  height: clamp(420px, calc(100svh - 350px), 640px);
+  min-height: 0;
+  flex: 1 0 420px;
+  margin-top: 5px;
+}
+.hero-person.portrait-experience {
+  height: 100%;
+  width: 38%;
+  max-width: 600px;
+  left: 50%;
+  bottom: 0;
+}
+.portrait-exposure img {
+  object-fit: contain;
+  object-position: bottom;
+}
+.hero-introduction {
+  width: 31%;
+  max-width: 530px;
+  bottom: 46px;
+}
+.hero-introduction h2 {
+  font-size: clamp(24px, 2.35vw, 43px);
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+}
+.hero-introduction p {
+  font-size: clamp(12px, 0.9vw, 17px);
+  line-height: 1.8;
+  margin: 20px 0;
+}
+.current-role {
+  font-size: clamp(10px, 0.85vw, 15px);
+}
+.hero-actions {
+  gap: 12px;
+}
+.primary-button,
+.secondary-button {
+  font-size: clamp(11px, 0.8vw, 14px) !important;
+  min-height: 44px;
+}
+.personal-note button > span {
+  font-size: clamp(21px, 2vw, 35px);
+}
+.personal-note small {
+  font-size: clamp(18px, 1.5vw, 28px);
+}
+.personal-note button {
+  max-width: 280px;
+}
+.note-mind {
+  left: 6%;
+  top: 20px;
+}
+.note-craft {
+  right: 0;
+  top: 45px;
+}
+.note-people {
+  right: 3%;
+  bottom: 105px;
+}
+.portrait-label {
+  left: 43%;
+  bottom: 49px;
+}
+.hero-bottom {
+  font-size: clamp(7px, 0.65vw, 11px);
+  padding: 18px 0 23px;
+  flex-shrink: 0;
+}
+.portrait-controls button {
+  font-size: 11px;
+  padding: 8px 14px;
+}
+.section-label {
+  font-size: clamp(9px, 0.7vw, 12px);
+  margin-bottom: 30px;
+}
+.section-heading {
+  gap: 5%;
+  margin-bottom: 36px;
+}
+.section-heading h2,
+h2 {
+  font-size: clamp(34px, 3.8vw, 72px);
+  line-height: 1.13;
+}
+.section-heading > p,
+.section-heading > div {
+  max-width: 420px;
+  font-size: clamp(13px, 1vw, 18px);
+  line-height: 1.85;
+}
+.section-heading > div > p {
+  margin-bottom: 10px;
+}
+.project-toolbar {
+  gap: 25px;
+  margin-bottom: 28px;
+}
+.project-search {
+  min-width: 0;
+  width: clamp(220px, 24vw, 380px);
+}
+.project-search input {
+  min-width: 0;
+  width: 100%;
+  font-size: clamp(11px, 0.85vw, 15px);
+}
+.filters {
+  flex-wrap: wrap;
+  gap: 9px;
+}
+.filters button {
+  font-size: clamp(11px, 0.8vw, 14px);
+  padding: 10px 17px;
+}
+.project-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-bottom: 0;
+  width: 100%;
+  min-width: 0;
+}
+.project-chapter {
+  position: relative !important;
+  top: auto !important;
+  z-index: auto !important;
+  box-shadow: none !important;
+  border-top: 1px solid var(--line);
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+  padding: clamp(28px, 4vw, 65px) 0;
+  background: var(--paper);
+}
+.project-chapter .project-open {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 0 !important;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(24px, 5vw, 110px);
+  align-items: center;
+  padding: 0;
+}
+.project-grid > div:nth-child(even) .project-open {
+  direction: rtl;
+}
+.project-art,
+.project-story {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  direction: ltr;
+}
+.project-art {
+  aspect-ratio: 1.45;
+  max-height: 650px;
+  height: auto;
+  overflow: hidden;
+  contain: paint;
+}
+.project-story > .eyebrow {
+  font-size: clamp(9px, 0.75vw, 13px);
+}
+.project-title h3 {
+  font-size: clamp(16px, 1.2vw, 23px);
+}
+.project-story h4 {
+  font-size: clamp(25px, 2.6vw, 49px);
+  max-width: 25ch;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+.project-story > p {
+  font-size: clamp(13px, 1vw, 18px);
+  line-height: 1.85;
+  max-width: 68ch;
+  overflow-wrap: anywhere;
+}
+.project-stack {
+  font-size: clamp(9px, 0.7vw, 13px);
+  gap: 7px;
+}
+.project-stack > span {
+  padding: 5px 9px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.case-link {
+  font-size: clamp(12px, 0.9vw, 16px);
+  max-width: 220px;
+}
+.art-index,
+.art-year {
+  font-size: clamp(8px, 0.65vw, 12px);
+}
+.lab-flow {
+  gap: clamp(10px, 1.5vw, 30px);
+}
+.lab-flow strong {
+  width: clamp(90px, 10vw, 180px);
+  height: clamp(90px, 10vw, 180px);
+  font-size: clamp(32px, 3.7vw, 65px);
+  flex-shrink: 0;
+}
+.lab-flow strong span {
+  font-size: clamp(8px, 0.7vw, 13px);
+}
+.lab-flow > span {
+  font-size: clamp(7px, 0.65vw, 12px);
+  padding: clamp(7px, 1vw, 15px);
+}
+.lab-flow i {
+  width: clamp(10px, 2vw, 30px);
+  flex-shrink: 1;
+}
+.chair {
+  transform: translate(-50%, -50%) rotate(-12deg) scale(1.35);
+}
+.about-section {
+  margin-top: 30px;
+  padding-top: 60px;
+  padding-bottom: 55px;
+  border-radius: 0;
+}
+.about-layout {
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 8%;
+  align-items: center;
+}
+.portrait-wrap {
+  width: 75%;
+  max-width: 430px;
+  margin: 10px auto;
+}
+.about-copy h2 {
+  font-size: clamp(34px, 3.4vw, 64px);
+}
+.about-copy > p {
+  font-size: clamp(14px, 1.05vw, 19px);
+  line-height: 1.9;
+  max-width: 78ch;
+}
+.about-copy .text-link {
+  font-size: 14px;
+}
+.education-note strong {
+  font-size: clamp(15px, 1.2vw, 23px);
+}
+.education-note > span {
+  font-size: clamp(12px, 0.9vw, 16px);
+}
+.education-note small {
+  font-size: 10px;
+}
+.skills-layout {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 4%;
+  margin-top: 55px;
+}
+.skills-layout h3 {
+  font-size: clamp(14px, 1.05vw, 20px);
+}
+.skills-layout p {
+  font-size: clamp(12px, 0.9vw, 16px);
+  overflow-wrap: anywhere;
+}
+.approach-layout {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 8%;
+}
+.approach-layout h2 {
+  font-size: clamp(32px, 3.4vw, 65px);
+}
+.approach-layout > div > p {
+  font-size: clamp(13px, 1vw, 18px);
+  max-width: 640px;
+}
+.approach-layout .system-drawing svg {
+  max-height: 500px;
+}
+.drawing-caption,
+.approach-layout .drawing-caption {
+  font-size: clamp(8px, 0.65vw, 12px) !important;
+}
+.layer-controls small {
+  font-size: clamp(7px, 0.65vw, 12px);
+}
+.layer-controls strong {
+  font-size: clamp(13px, 0.95vw, 18px);
+}
+.layer-controls > button > span {
+  font-size: 10px;
+}
+.timeline article {
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.7fr);
+  gap: 6%;
+}
+.timeline-body h3 {
+  font-size: clamp(30px, 3vw, 56px);
+}
+.timeline-body > p {
+  font-size: clamp(14px, 1.05vw, 19px);
+  max-width: 75ch;
+}
+.timeline-date {
+  font-size: clamp(11px, 0.85vw, 16px);
+}
+.timeline-date small {
+  font-size: clamp(10px, 0.8vw, 14px);
+}
+.timeline-body > .eyebrow {
+  font-size: clamp(10px, 0.8vw, 14px);
+}
+summary {
+  font-size: clamp(13px, 0.95vw, 17px);
+  max-width: none;
+}
+details ul {
+  font-size: clamp(13px, 1vw, 18px);
+  max-width: 75ch;
+}
+.credentials {
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.7fr);
+  gap: 6%;
+}
+.credentials > div {
+  font-size: clamp(13px, 1vw, 18px);
+}
+.credentials > .eyebrow {
+  font-size: 10px;
+}
+.recognition-row {
+  grid-template-columns: 40px minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, 0.8fr);
+  gap: 20px;
+}
+.recognition-row h3 {
+  font-size: clamp(15px, 1.1vw, 22px);
+}
+.recognition-row p {
+  font-size: clamp(13px, 1vw, 18px);
+}
+.recognition-row > small {
+  font-size: clamp(9px, 0.75vw, 13px);
+}
+.beyond-grid {
+  gap: 8%;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+.beyond-grid h3 {
+  font-size: clamp(30px, 2.8vw, 52px);
+}
+.beyond-grid p {
+  font-size: clamp(13px, 1vw, 18px);
+  max-width: 70ch;
+}
+.beyond-grid li strong {
+  font-size: clamp(14px, 1vw, 19px);
+}
+.beyond-grid li span {
+  font-size: clamp(12px, 0.85vw, 16px);
+}
+.beyond-grid .eyebrow {
+  font-size: 10px;
+}
+.text-link {
+  font-size: clamp(12px, 0.9vw, 17px);
+}
+.repo-list > a {
+  grid-template-columns: 24px minmax(0, 1fr) 140px 110px 20px;
+  gap: 22px;
+}
+.repo-list strong {
+  font-size: clamp(14px, 1.05vw, 20px);
+  overflow-wrap: anywhere;
+}
+.repo-list > a > span,
+.repo-list small {
+  font-size: clamp(10px, 0.8vw, 14px);
+}
+.github-section {
+  padding-bottom: 70px;
+}
+.contact-top,
+.contact-bottom {
+  max-width: none;
+  width: 100%;
+}
+.contact-section h2 {
+  max-width: none;
+  font-size: clamp(42px, 6.5vw, 125px);
+}
+.contact-bottom .email-link {
+  font-size: clamp(18px, 2vw, 35px);
+}
+.social-links {
+  font-size: clamp(12px, 0.9vw, 17px);
+}
+.copy-email {
+  font-size: 12px;
+}
+footer {
+  padding-inline: var(--page-gutter);
+  font-size: clamp(8px, 0.65vw, 11px);
+}
+.cursor-companion {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 80;
+  overflow: clip;
+}
+.cursor-orbit {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.cursor-aura {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--accent) 6%, transparent),
+    transparent 67%
+  );
+  pointer-events: none;
+}
+.cursor-companion * {
+  pointer-events: none;
+}
+.project-dialog {
+  width: min(760px, 94vw);
+  max-height: 88svh;
+}
+.dialog-content {
+  overflow-wrap: anywhere;
+}
+.dialog-intro {
+  font-size: 15px;
+}
+.dialog-content li {
+  font-size: 14px;
+}
+.dialog-links {
+  font-size: 13px;
+}
+/* Hero stays pinned while Work slides across it. No scroll capture or wheel interception. */
+.hero-scroll-scene {
+  position: relative;
+  z-index: 0;
+  min-width: 0;
+}
+.work-section {
+  background: var(--paper);
+  position: relative;
+  z-index: 4;
+  overflow: clip;
+  border-top: 1px solid var(--line);
+}
+@media (min-width: 900px) and (min-height: 720px) and (prefers-reduced-motion: no-preference) {
+  .hero-scroll-scene {
+    height: 210svh;
+  }
+  .hero.personal-hero {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+    min-height: 0;
+  }
+  .portrait-stage {
+    flex: 1 1 auto;
+    height: auto;
+  }
+  .work-section {
+    margin-top: -100svh;
+    padding-top: 65px;
+    border-radius: 36px 36px 0 0;
+    box-shadow: 0 -30px 80px #0003;
+  }
+}
+@media (min-width: 2100px) {
+  :root {
+    --page-gutter: 4.5vw;
+  }
+  .hero-person.portrait-experience {
+    max-width: 650px;
+  }
+  .hero-introduction {
+    max-width: 650px;
+  }
+  .personal-note button {
+    max-width: 340px;
+  }
+  .portrait-stage {
+    height: 650px;
+  }
+  .section-heading > p,
+  .section-heading > div {
+    max-width: 580px;
+  }
+  .project-open {
+    gap: 6vw;
+  }
+}
+@media (max-width: 1100px) {
+  .header nav {
+    gap: 19px;
+  }
+  .hero-introduction {
+    width: 32%;
+  }
+  .hero-introduction h2 {
+    font-size: 25px;
+  }
+  .hero-introduction p {
+    font-size: 12px;
+  }
+  .personal-note button > span {
+    font-size: 23px;
+  }
+  .personal-note button {
+    max-width: 190px;
+  }
+  .personal-note small {
+    font-size: 18px;
+  }
+  .hero-person.portrait-experience {
+    width: 39%;
+  }
+  .portrait-stage {
+    flex-basis: 430px;
+  }
+  .project-chapter .project-open {
+    gap: 30px;
+  }
+  .project-story h4 {
+    font-size: 28px;
+  }
+  .project-story > p {
+    font-size: 13px;
+  }
+  .recognition-row {
+    gap: 15px;
+  }
+  .contact-section h2 {
+    font-size: 8vw;
+  }
+}
+@media (max-width: 899px) {
+  .header {
+    top: 12px;
+    height: 58px;
+    padding-inline: 15px;
+  }
+  .header nav,
+  .command-trigger {
+    display: none;
+  }
+  .menu-trigger {
+    display: flex;
+  }
+  .header-tools {
+    gap: 3px;
+  }
+  .header .icon-button {
+    min-width: 32px;
+    min-height: 36px;
+  }
+  .header .icon-button svg {
+    width: 18px;
+  }
+  .wordmark > .brand-name {
+    font-size: 11px;
+  }
+  .brand-name > small {
+    font-size: 5px;
+  }
+  .resume-link {
+    padding: 10px 14px;
+    font-size: 10px;
+  }
+  .hero.personal-hero {
+    padding-top: 95px;
+    height: auto;
+    min-height: 100svh;
+  }
+  .personal-hero h1 {
+    font-size: 9.3vw;
+    letter-spacing: 0;
+    margin: 24px 0 0;
+    line-height: 1.12;
+  }
+  .hero-meta {
+    font-size: 7px;
+  }
+  .portrait-stage {
+    height: 690px;
+    flex: 0 0 690px;
+    margin-top: 14px;
+  }
+  .hero-person.portrait-experience {
+    top: 5px;
+    bottom: auto;
+    width: 72%;
+    max-width: 450px;
+    height: 435px;
+    left: 50%;
+  }
+  .portrait-halo {
+    width: 90%;
+    left: 5%;
+    height: 420px;
+    top: 0;
+  }
+  .hero-introduction {
+    left: 0;
+    bottom: 10px;
+    width: 100%;
+    max-width: none;
+    text-align: center;
+  }
+  .hero-introduction h2 {
+    font-size: 35px;
+  }
+  .hero-introduction p {
+    font-size: 13px;
+    line-height: 1.8;
+    margin: 16px 0 19px;
+  }
+  .hero-actions,
+  .current-role {
+    justify-content: center;
+  }
+  .current-role {
+    font-size: 11px;
+    margin-bottom: 16px;
+  }
+  .hero-introduction .primary-button,
+  .hero-introduction .secondary-button {
+    font-size: 12px !important;
+    min-height: 44px;
+  }
+  .personal-note.note-mind {
+    left: 0;
+    top: 15px;
+    display: block;
+  }
+  .note-mind .sketch-arrow {
+    left: 95px;
+    width: 80px;
+    top: 15px;
+  }
+  .personal-note button > span {
+    font-size: 22px;
+  }
+  .personal-note small {
+    font-size: 18px;
+  }
+  .personal-note button {
+    max-width: 185px;
+  }
+  .portrait-stage .note-craft,
+  .portrait-stage .note-people,
+  .portrait-stage .portrait-label {
+    display: none;
+  }
+  .hero-bottom {
+    font-size: 8px;
+    padding: 18px 0;
+  }
+  .hero-bottom > span:nth-child(2) {
+    display: none;
+  }
+  .portrait-controls button {
+    font-size: 10px;
+    padding: 8px 13px;
+  }
+  .work-section {
+    margin-top: 0;
+    border-radius: 22px 22px 0 0;
+    padding-top: 50px;
+    box-shadow: 0 -15px 45px #0001;
+  }
+  .section-heading {
+    align-items: flex-start;
+    gap: 25px;
+  }
+  .section-heading h2 {
+    font-size: 39px;
+  }
+  .section-heading > p,
+  .section-heading > div {
+    font-size: 13px;
+    max-width: 290px;
+  }
+  .project-toolbar {
+    align-items: flex-start;
+    gap: 15px;
+  }
+  .project-chapter .project-open {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 25px;
+    min-height: 0;
+  }
+  .project-art {
+    aspect-ratio: 1.15;
+  }
+  .project-story h4 {
+    font-size: 25px;
+  }
+  .project-story > p {
+    font-size: 12px;
+  }
+  .project-title h3 {
+    font-size: 15px;
+  }
+  .project-stack {
+    font-size: 8px;
+  }
+  .art-index,
+  .art-year {
+    font-size: 7px;
+  }
+  .art-index {
+    left: 16px;
+    top: 16px;
+  }
+  .chair {
+    transform: translate(-50%, -50%) rotate(-12deg) scale(0.85);
+  }
+  .project-open:hover .chair {
+    transform: translate(-50%, -50%) rotate(-6deg) scale(0.85);
+  }
+  .lab-flow {
+    gap: 8px;
+  }
+  .lab-flow > span {
+    padding: 5px;
+    font-size: 6px;
+  }
+  .lab-flow strong {
+    width: 70px;
+    height: 70px;
+    font-size: 26px;
+    box-shadow:
+      0 0 0 12px #c3c8da,
+      0 0 0 13px #a0a9c5;
+  }
+  .lab-flow i {
+    width: 8px;
+  }
+  .lab-flow strong span {
+    font-size: 6px;
+  }
+  .about-layout {
+    gap: 6%;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  }
+  .portrait-wrap {
+    width: 85%;
+    max-width: 320px;
+  }
+  .about-copy h2 {
+    font-size: 34px;
+  }
+  .about-copy > p {
+    font-size: 13px;
+  }
+  .approach-layout {
+    gap: 6%;
+  }
+  .approach-layout h2 {
+    font-size: 34px;
+  }
+  .approach-layout > div > p {
+    font-size: 13px;
+  }
+  .layer-controls small {
+    font-size: 6px;
+  }
+  .recognition-row {
+    grid-template-columns: 25px minmax(0, 1fr) minmax(0, 1.1fr);
+  }
+  .recognition-row > small {
+    grid-column: 2/4;
+    text-align: left;
+  }
+  .timeline article,
+  .credentials {
+    grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.5fr);
+  }
+  .repo-list > a {
+    grid-template-columns: 20px minmax(0, 1fr) 90px 80px 18px;
+    gap: 14px;
+  }
+  .repo-list strong {
+    font-size: 13px;
+  }
+  .repo-list > a > span,
+  .repo-list small {
+    font-size: 9px;
+  }
+  .mobile-menu {
+    inset: 0;
+    padding: 100px var(--page-gutter) 35px;
+  }
+  .contact-bottom {
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+  .cursor-aura {
+    width: 260px;
+    height: 260px;
+  }
+}
+@media (max-width: 600px) {
+  :root {
+    --page-gutter: 20px;
+    --section-space: 55px;
+  }
+  .header {
+    width: calc(100% - 24px);
+    padding-inline: 14px;
+  }
+  .wordmark {
+    gap: 7px;
+  }
+  .wordmark > .monogram {
+    font-size: 25px;
+  }
+  .wordmark > .brand-name {
+    font-size: 10px;
+  }
+  .header-tools {
+    gap: 1px;
+  }
+  .resume-link {
+    font-size: 10px;
+    padding: 9px 12px;
+  }
+  .hero-meta > span:last-child {
+    display: none;
+  }
+  .hero-meta {
+    font-size: 6.5px;
+    letter-spacing: 0.8px;
+  }
+  .personal-hero h1 {
+    font-size: 9vw;
+    margin: 23px 0 0;
+    gap: 0.2em;
+  }
+  .portrait-stage {
+    height: 650px;
+    flex-basis: 650px;
+  }
+  .hero-person.portrait-experience {
+    width: 83%;
+    height: 380px;
+    max-width: 360px;
+    top: 14px;
+  }
+  .portrait-controls button {
+    font-size: 10px;
+    padding: 8px 12px;
+  }
+  .portrait-stage .note-mind {
+    top: 8px;
+    left: 0;
+  }
+  .personal-note button > span {
+    font-size: 17px;
+  }
+  .personal-note small {
+    font-size: 14px;
+  }
+  .personal-note button {
+    max-width: 130px;
+  }
+  .note-mind .sketch-arrow {
+    width: 60px;
+    left: 65px;
+    top: 22px;
+  }
+  .hero-introduction {
+    bottom: 4px;
+  }
+  .hero-introduction h2 {
+    font-size: 31px;
+  }
+  .hero-introduction p {
+    font-size: 12px;
+    margin: 14px 0 19px;
+  }
+  .current-role {
+    font-size: 10px;
+    margin-bottom: 14px;
+  }
+  .hero-bottom {
+    font-size: 6.5px;
+    gap: 10px;
+  }
+  .hero-bottom > a {
+    white-space: nowrap;
+    gap: 4px;
+  }
+  .hero-bottom svg {
+    width: 10px;
+  }
+  .section-heading {
+    display: block;
+    margin-bottom: 28px;
+  }
+  .section-heading h2,
+  h2 {
+    font-size: 35px;
+  }
+  .section-heading > p,
+  .section-heading > div {
+    max-width: none;
+    font-size: 13px;
+    margin-top: 20px;
+  }
+  .section-label {
+    font-size: 8px;
+    letter-spacing: 0.8px;
+    gap: 12px;
+  }
+  .project-toolbar {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+  .filters {
+    gap: 6px;
+    justify-content: flex-start;
+  }
+  .filters button {
+    font-size: 10px;
+    padding: 9px 12px;
+    white-space: nowrap;
+  }
+  .project-search {
+    width: 100%;
+    font-size: 12px;
+    margin: 0;
+  }
+  .project-search input {
+    font-size: 12px;
+  }
+  .project-chapter {
+    padding: 25px 0 35px;
+  }
+  .project-chapter .project-open {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    direction: ltr !important;
+    width: 100%;
+  }
+  .project-art {
+    aspect-ratio: 1.4;
+    min-height: 0;
+    max-height: 440px;
+  }
+  .project-story {
+    padding: 0;
+  }
+  .project-story > .eyebrow {
+    font-size: 9px;
+  }
+  .project-title {
+    margin: 12px 0;
+  }
+  .project-title h3 {
+    font-size: 17px;
+  }
+  .project-story h4 {
+    font-size: 27px;
+    max-width: 26ch;
+    margin-bottom: 16px;
+  }
+  .project-story > p {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .project-stack {
+    font-size: 9px;
+    gap: 6px;
+  }
+  .project-stack > span {
+    padding: 5px 7px;
+  }
+  .case-link {
+    font-size: 12px;
+    padding-top: 17px;
+  }
+  .art-index {
+    font-size: 7px;
+  }
+  .chair {
+    transform: translate(-50%, -50%) rotate(-12deg) scale(0.95);
+  }
+  .lab-flow {
+    gap: 12px;
+  }
+  .lab-flow strong {
+    width: 90px;
+    height: 90px;
+    font-size: 32px;
+  }
+  .lab-flow > span {
+    font-size: 7px;
+    padding: 7px;
+  }
+  .lab-flow i {
+    width: 12px;
+  }
+  .lab-flow strong span {
+    font-size: 7px;
+  }
+  .app-screens {
+    padding: 45px 10px 10px;
+    gap: 15px;
+  }
+  .browser-preview {
+    top: 24%;
+  }
+  .about-section {
+    margin-top: 10px;
+    padding-top: 45px;
+    padding-bottom: 40px;
+  }
+  .about-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 35px;
+  }
+  .portrait-wrap {
+    width: 70%;
+    max-width: 280px;
+    margin: 8px auto;
+  }
+  .about-copy h2 {
+    font-size: 35px;
+  }
+  .about-copy > p {
+    font-size: 14px;
+  }
+  .about-copy .text-link {
+    font-size: 13px;
+  }
+  .education-note strong {
+    font-size: 16px;
+  }
+  .education-note > span {
+    font-size: 12px;
+  }
+  .skills-layout {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 18px;
+    margin-top: 35px;
+  }
+  .skills-layout h3 {
+    font-size: 14px;
+  }
+  .skills-layout p {
+    font-size: 12px;
+    line-height: 1.9;
+  }
+  .approach-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 25px;
+  }
+  .approach-layout h2 {
+    font-size: 35px;
+  }
+  .approach-layout > div > p {
+    font-size: 14px;
+    margin-top: 20px;
+  }
+  .approach-layout .system-drawing svg {
+    max-height: 320px;
+  }
+  .drawing-caption,
+  .approach-layout .drawing-caption {
+    font-size: 7px !important;
+  }
+  .layer-controls strong {
+    font-size: 13px;
+  }
+  .layer-controls small {
+    font-size: 7px;
+    letter-spacing: -0.04em;
+  }
+  .layer-controls {
+    gap: 10px;
+  }
+  .timeline article,
+  .credentials {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    padding: 25px 0;
+  }
+  .timeline-date {
+    font-size: 11px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 13px;
+  }
+  .timeline-date small {
+    font-size: 10px;
+    margin: 0;
+  }
+  .timeline-body h3 {
+    font-size: 32px;
+  }
+  .timeline-body > p {
+    font-size: 14px;
+  }
+  .timeline-body > .eyebrow {
+    font-size: 10px;
+  }
+  summary {
+    font-size: 13px;
+  }
+  details ul {
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .credentials > div {
+    font-size: 13px;
+  }
+  .recognition-row {
+    grid-template-columns: 24px minmax(0, 1fr);
+    gap: 7px 12px;
+    padding: 23px 0;
+  }
+  .recognition-row > span {
+    grid-row: 1/4;
+  }
+  .recognition-row h3 {
+    font-size: 16px;
+  }
+  .recognition-row p {
+    font-size: 14px;
+  }
+  .recognition-row > small {
+    grid-column: 2;
+    max-width: 100%;
+    font-size: 10px;
+  }
+  .beyond-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+  }
+  .beyond-grid h3 {
+    font-size: 32px;
+  }
+  .beyond-grid p {
+    font-size: 14px;
+  }
+  .beyond-grid li strong {
+    font-size: 14px;
+  }
+  .beyond-grid li span {
+    font-size: 12px;
+  }
+  .repo-list > a {
+    grid-template-columns: 18px minmax(0, 1fr) 76px 16px;
+    gap: 11px;
+    padding: 20px 0;
+  }
+  .repo-list small {
+    display: none;
+  }
+  .repo-list strong {
+    font-size: 13px;
+  }
+  .repo-list > a > span {
+    font-size: 8px;
+  }
+  .snapshot-note {
+    font-size: 8px;
+    text-align: left;
+  }
+  .github-section {
+    padding-bottom: 55px;
+  }
+  .contact-section {
+    padding-top: 30px;
+    padding-bottom: 35px;
+  }
+  .contact-section h2 {
+    font-size: 43px;
+    line-height: 1.15;
+    margin: 32px 0 35px;
+  }
+  .contact-section h2 > span {
+    font-size: 30px;
+    right: 0;
+  }
+  .contact-section h2 em {
+    max-width: 100%;
+  }
+  .contact-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .contact-bottom .email-link {
+    font-size: clamp(14px, 4.2vw, 22px);
+    overflow-wrap: anywhere;
+  }
+  .social-links {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 8px;
+    font-size: 12px;
+  }
+  .copy-email {
+    font-size: 11px;
+  }
+  footer {
+    gap: 18px;
+    font-size: 7px;
+  }
+  .dialog-content {
+    padding: 55px 22px 25px;
+  }
+  .dialog-content h2 {
+    font-size: 32px;
+  }
+  .dialog-intro {
+    font-size: 14px;
+  }
+  .dialog-content li {
+    font-size: 13px;
+  }
+  .dialog-links {
+    font-size: 12px;
+  }
+  .source-note {
+    font-size: 11px;
+  }
+  .command-dialog {
+    padding: 18px;
+  }
+  .command-header h2 {
+    font-size: 16px;
+  }
+  .command-dialog > button,
+  .command-dialog > a {
+    font-size: 13px;
+  }
+  .mobile-menu > button {
+    font-size: 32px;
+  }
+}
+@media (max-width: 359px) {
+  :root {
+    --page-gutter: 16px;
+  }
+  .wordmark > .brand-name {
+    display: none !important;
+  }
+  .hero-person.portrait-experience {
+    height: 350px;
+    width: 90%;
+  }
+  .portrait-stage {
+    height: 625px;
+    flex-basis: 625px;
+  }
+  .hero-introduction h2 {
+    font-size: 28px;
+  }
+  .personal-hero h1 {
+    font-size: 8.8vw;
+  }
+  .filters {
+    gap: 5px;
+  }
+  .filters button {
+    font-size: 9px;
+    padding: 9px 10px;
+  }
+  .project-story h4 {
+    font-size: 25px;
+  }
+  .project-stack {
+    font-size: 8px;
+  }
+  .lab-flow {
+    gap: 9px;
+  }
+  .lab-flow strong {
+    width: 76px;
+    height: 76px;
+    font-size: 28px;
+  }
+  .skills-layout p {
+    font-size: 11px;
+  }
+  .contact-section h2 {
+    font-size: 37px;
+  }
+  .contact-bottom .email-link {
+    font-size: 14px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll-scene {
+    height: auto;
+  }
+  .hero.personal-hero {
+    position: relative;
+    opacity: 1 !important;
+    height: auto;
+    min-height: 100svh;
+  }
+  .work-section {
+    margin-top: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .cursor-companion {
+    display: none;
+  }
+  .project-chapter {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+@media (max-width: 899px), (max-height: 719px) {
+  .hero.personal-hero {
+    opacity: 1 !important;
+  }
+}
+@media (max-width: 899px), (pointer: coarse) {
+  .cursor-companion {
+    display: none;
+  }
+}
+.portrait-controls button[aria-pressed="true"]:hover {
+  color: var(--paper);
+}
+.brand-symbol {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  display: block;
+  overflow: visible;
+  flex-shrink: 0;
+}
+.brand-frame {
+  opacity: 0.35;
+  transition: opacity 0.2s;
+}
+.wordmark:hover .brand-frame {
+  opacity: 0.8;
+}
+footer .brand-symbol {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+}
+@media (max-width: 600px) {
+  .brand-symbol {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+  }
+  .header .wordmark {
+    gap: 8px;
+  }
+}
+
+/* Keep the complete avatar silhouette visible in the about section. */
+.portrait-wrap img {
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+/* A quieter closing sequence: one hierarchy, consistent rhythm. */
+.experience-section,
+.recognition-section,
+.github-section {
+  padding-block: clamp(64px, 7vw, 112px);
+}
+.experience-section .section-heading,
+.recognition-section .section-heading,
+.github-section .section-heading {
+  margin-block: 32px 42px;
+  align-items: end;
+}
+.experience-section .section-heading h2,
+.recognition-section .section-heading h2,
+.github-section .section-heading h2 {
+  font-size: clamp(34px, 4.1vw, 72px);
+  line-height: 1.12;
+}
+.career-timeline {
+  position: relative;
+  border-left: 1px solid var(--line);
+  padding-left: 28px;
+}
+.career-progress {
+  position: absolute;
+  inset: 0 auto 0 -1px;
+  width: 2px;
+  background: var(--accent);
+  transform-origin: top;
+  pointer-events: none;
+}
+.career-timeline article {
+  padding-block: 32px;
+  border-bottom: 1px solid var(--line);
+}
+.career-timeline .timeline-dot {
+  box-shadow: 0 0 0 5px var(--paper);
+}
+.career-timeline .timeline-body h3 {
+  font-size: clamp(28px, 2.8vw, 46px);
+  margin-block: 12px;
+}
+.career-timeline .timeline-body > p {
+  line-height: 1.75;
+  max-width: 62ch;
+}
+.credentials {
+  margin-top: 30px;
+  padding-block: 24px;
+  border-bottom: 1px solid var(--line);
+}
+.credentials > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 32px;
+}
+.credentials > div > span {
+  padding: 0;
+  border: 0;
+  background: none;
+}
+.recognition-row {
+  padding: 24px 0;
+  position: relative;
+  transition:
+    padding 0.3s,
+    background 0.3s;
+}
+.recognition-row > span {
+  color: var(--accent);
+}
+.recognition-row h3,
+.recognition-row p {
+  margin: 0;
+  line-height: 1.5;
+}
+.recognition-row::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s;
+}
+.recognition-row:hover::after {
+  transform: scaleX(1);
+}
+.beyond-grid {
+  margin-top: 56px;
+  gap: 6%;
+}
+.beyond-grid > article {
+  padding: 28px 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+  background: none;
+  border-radius: 0;
+}
+.beyond-grid h3 {
+  font-size: clamp(30px, 3vw, 48px);
+  margin-block: 22px;
+}
+.beyond-grid p {
+  line-height: 1.8;
+}
+.beyond-grid li {
+  padding-block: 15px;
+}
+.github-section {
+  border-top: 1px solid var(--line);
+}
+.repo-disclosure {
+  border-block: 1px solid var(--line);
+}
+.repo-disclosure > summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+  cursor: pointer;
+  list-style: none;
+  color: var(--ink);
+}
+.repo-disclosure > summary::-webkit-details-marker {
+  display: none;
+}
+.repo-disclosure > summary svg {
+  transition: transform 0.3s;
+}
+.repo-disclosure[open] > summary svg {
+  transform: rotate(45deg);
+}
+.repo-list > a {
+  position: relative;
+  transition:
+    padding 0.25s,
+    color 0.25s;
+  padding-block: 20px;
+}
+.repo-list > a > svg:last-child,
+.social-links a svg,
+.text-link svg {
+  transition: transform 0.3s;
+}
+.repo-list > a:hover > svg:last-child,
+.social-links a:hover svg,
+.text-link:hover svg {
+  transform: translate(3px, -3px);
+}
+.contact-section {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(56px, 6vw, 100px);
+  border-radius: 32px 32px 0 0;
+}
+.contact-section h2 {
+  font-size: clamp(52px, 8.5vw, 146px);
+  line-height: 1.04;
+  margin-block: 48px;
+}
+.contact-section h2 > span {
+  display: inline-block;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.contact-section:hover h2 > span {
+  transform: translate(10px, -10px);
+}
+.contact-bottom {
+  border-top: 1px solid currentColor;
+  padding-top: 28px;
+  gap: 30px;
+}
+.social-links {
+  gap: 24px;
+}
+footer {
+  gap: 24px;
+  padding-block: 28px;
+}
+footer > span:nth-child(2) {
+  display: none;
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .recognition-row:hover {
+    padding-inline: 12px;
+  }
+  .repo-list > a:hover {
+    padding-inline: 12px;
+    color: var(--accent);
+  }
+}
+@media (max-width: 600px) {
+  .career-timeline {
+    padding-left: 18px;
+  }
+  .career-timeline article {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding-block: 26px;
+  }
+  .credentials {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .credentials > div {
+    flex-direction: column;
+    align-items: start;
+  }
+  .recognition-row {
+    grid-template-columns: 26px minmax(0, 1fr);
+    gap: 6px 12px;
+  }
+  .recognition-row > span {
+    grid-row: 1 / 4;
+  }
+  .recognition-row p,
+  .recognition-row > small {
+    grid-column: 2;
+  }
+  .recognition-row > small {
+    display: block;
+  }
+  .beyond-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 32px;
+  }
+  .contact-top > span:last-child {
+    display: none;
+  }
+  .contact-section h2 {
+    margin-block: 38px;
+  }
+  .contact-bottom {
+    flex-direction: column;
+    align-items: start;
+  }
+  .contact-bottom .email-link {
+    font-size: clamp(16px, 4.6vw, 25px);
+    overflow-wrap: anywhere;
+  }
+  .repo-list > a {
+    grid-template-columns: 18px minmax(0, 1fr) 18px;
+    gap: 12px;
+  }
+  .repo-list > a > span,
+  .repo-list small {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .recognition-row,
+  .recognition-row::after,
+  .repo-list > a,
+  .contact-section h2 > span,
+  .social-links a svg,
+  .text-link svg,
+  .repo-disclosure > summary svg {
+    transition: none;
+  }
+}

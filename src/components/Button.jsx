@@ -1,25 +1,15 @@
-// styles is a prop
 import React from "react";
-const Button = ({ styles, text, icon }) => {
-  const classNames = `py-3 px-4 bg-blue-gradient font-poppins font-medium text-[12px] text-primary outline-none ${styles ?? ''} rounded`
+import { Button as UiButton } from "./ui/button";
 
-  return (
-    icon ? (
-      <button
-        type="button"
-        className={classNames}
-      >
-        {React.createElement(icon)}&nbsp;{text}
-      </button>
-    ) : (
-      <button
-        type="button"
-        className={classNames}
-      >
-        {text}
-      </button>
-    )
-  )
-};
+const Button = ({ styles, text, icon, ...props }) => (
+  <UiButton
+    type="button"
+    className={`h-auto py-3 px-4 bg-blue-gradient font-poppins font-medium text-[12px] text-primary rounded ${styles ?? ""}`}
+    {...props}
+  >
+    {icon && React.createElement(icon)}
+    {text}
+  </UiButton>
+);
 
 export default Button;

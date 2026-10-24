@@ -5,6 +5,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        border: "hsl(var(--border))",
+        input: "hsl(var(--border))",
+        ring: "hsl(var(--ring))",
+        "ui-primary": { DEFAULT: "hsl(var(--ui-primary))", foreground: "hsl(var(--ui-primary-foreground))" },
+        "ui-secondary": { DEFAULT: "hsl(var(--accent))", foreground: "hsl(var(--foreground))" },
+        accent: { DEFAULT: "hsl(var(--accent))", foreground: "hsl(var(--foreground))" },
+        destructive: { DEFAULT: "hsl(0 72% 51%)", foreground: "hsl(0 0% 100%)" },
         primary: "#00040f",
         secondary: "#00f6ff",
         dimWhite: "rgba(255, 255, 255, 0.7)",
@@ -23,5 +32,5 @@ module.exports = {
       xl: "1700px",
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };

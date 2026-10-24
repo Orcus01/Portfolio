@@ -6,16 +6,25 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sync:github": "node scripts/sync-github.mjs",
+    "build:pages": "vite build --base=/Portfolio/"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.5.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "framer-motion": "^7.3.5",
+    "lucide-react": "^1.61.0",
+    "motion": "^14.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
     "react-lottie-player": "1.5.4",
     "react-tsparticles": "^2.12.2",
     "smoothscroll-polyfill": "^0.4.4",
+    "tailwind-merge": "^2.6.1",
+    "tailwindcss-animate": "^1.0.7",
     "tsparticles": "^3.9.1"
   },
   "devDependencies": {

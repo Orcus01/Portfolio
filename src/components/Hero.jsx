@@ -1,3 +1,5 @@
+import { BlurFade } from "./ui/blur-fade";
+import { Button } from "./ui/button";
 import styles from "../style";
 import LetsConnect from "./LetsConnect";
 import Lottie from "react-lottie-player";
@@ -38,9 +40,14 @@ const Hero = () => {
         <h1 className="font-poppins font-semibold ss:text-[68px] text-[52px] text-white ss:leading-[80px] leading-[80px] w-full">
           <span className="text-gradient">{aboutMe.name}</span>
         </h1>
+        <BlurFade delay={0.15}>
         <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
           {aboutMe.intro}
         </p>
+        </BlurFade>
+        <BlurFade delay={0.3} className="mt-7 relative z-10">
+          <Button asChild size="lg"><a href="#projects">Explore projects</a></Button>
+        </BlurFade>
       </div>
 
       <div
