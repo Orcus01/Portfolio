@@ -1,7 +1,15 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      try {
+        document.documentElement.dataset.theme =
+          localStorage.getItem("portfolio-theme-v2") === "light"
+            ? "light"
+            : "dark";
+      } catch {}
+    </script>
     <link rel="icon" type="image/svg+xml" href="/Portfolio/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -16,8 +24,8 @@
     />
     <meta property="og:type" content="website" />
     <title>Japneet Singh — Software Engineer</title>
-    <script type="module" crossorigin src="/Portfolio/assets/index.6ab71406.js"></script>
-    <link rel="stylesheet" href="/Portfolio/assets/index.09543b96.css">
+    <script type="module" crossorigin src="/Portfolio/assets/index.84609a30.js"></script>
+    <link rel="stylesheet" href="/Portfolio/assets/index.374f8f99.css">
   </head>
   <body>
     <div id="root"></div>
