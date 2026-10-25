@@ -19,6 +19,7 @@ import { AiFillGithub as Github } from "react-icons/ai";
 import { BlurFade } from "./components/ui/blur-fade";
 import { Button } from "./components/ui/button";
 import BrandMark from "./components/BrandMark";
+import EnergyTrail from "./components/EnergyTrail";
 import ProjectVisual from "./components/ProjectVisual";
 import { caseStudies } from "./data/caseStudies";
 import {
@@ -185,52 +186,6 @@ function SystemDrawing() {
           ).join(" · ")}
         </p>
       </div>
-    </div>
-  );
-}
-function CursorCompanion() {
-  const reduced = useReducedMotion();
-  const x = useMotionValue(-200),
-    y = useMotionValue(-200);
-  const smoothX = useSpring(x, { stiffness: 150, damping: 25 });
-  const smoothY = useSpring(y, { stiffness: 150, damping: 25 });
-  const [enabled, setEnabled] = useState(false);
-  const [hovered, setHovered] = useState(false);
-  useEffect(() => {
-    const query = window.matchMedia("(pointer: fine)");
-    const sync = () => setEnabled(query.matches && !reduced);
-    sync();
-    query.addEventListener("change", sync);
-    const move = (event) => {
-      x.set(event.clientX);
-      y.set(event.clientY);
-      setHovered(Boolean(event.target?.closest?.("a,button,input,summary")));
-    };
-    const leave = () => {
-      x.set(-200);
-      y.set(-200);
-    };
-    window.addEventListener("pointermove", move, { passive: true });
-    document.documentElement.addEventListener("pointerleave", leave);
-    return () => {
-      query.removeEventListener("change", sync);
-      window.removeEventListener("pointermove", move);
-      document.documentElement.removeEventListener("pointerleave", leave);
-    };
-  }, [reduced, x, y]);
-  if (!enabled) return null;
-  return (
-    <div className="cursor-companion" aria-hidden="true">
-      <motion.div
-        className="cursor-orbit"
-        style={{ left: smoothX, top: smoothY }}
-        animate={{
-          width: hovered ? 32 : 12,
-          height: hovered ? 32 : 12,
-          opacity: hovered ? 0.4 : 0,
-        }}
-        transition={{ duration: 0.2 }}
-      />
     </div>
   );
 }
@@ -616,7 +571,7 @@ export default function App() {
       <a className="skip-link" href="#main">
         Skip to content
       </a>
-      <CursorCompanion />
+      <EnergyTrail />
       <motion.div className="reading-progress" style={{ scaleX: progress }} />
       <header className="header">
         <a href="#" className="wordmark" aria-label="Japneet Singh home">

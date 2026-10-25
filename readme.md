@@ -56,3 +56,7 @@ The hero retains the avatar, one annotation and the desktop slide transition. Mo
 `src/data/caseStudies.js` holds case-study copy. `src/components/ProjectVisual.jsx` renders real project captures and the labelled LabConnect architecture overview. The Seats & Spaces screenshot was captured from its live public storefront on 25 October 2026; it does not represent private admin screens. LabConnect’s diagram summarises the supplied training-project details. It is not a screenshot or a performance claim.
 
 The owner will add certificate verification, award-result, and community-event URLs later. No verification badges or invented proof links are displayed. Existing GitHub, live-site and IEEE publication links remain available.
+
+## Orange energy trail
+
+A procedural Canvas 2D torus-knot ribbon follows the desktop cursor with spring-like easing and a trailing light filament. Mobile uses a smaller autonomous glow while the hero is visible. No new dependency or image asset is required. Rendering is capped at 60 fps on desktop / 30 fps for the smaller treatment, pixel ratio is capped at 1.5, hidden tabs pause, mobile animation stops outside the hero, and reduced-motion users receive no animated trail. The canvas is decorative, hidden from accessibility tools, and never intercepts clicks.
