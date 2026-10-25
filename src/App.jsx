@@ -372,9 +372,15 @@ function PersonalHero() {
                 <br />
                 <em>From screen to system.</em>
               </h2>
-              <p>
-                I build Java backends, web interfaces, and the cloud
-                infrastructure that connects them.
+              <p className="hero-description">
+                <span className="desktop-description">
+                  I build Java backends, web interfaces, and the cloud
+                  infrastructure that connects them.
+                </span>
+                <span className="mobile-description">
+                  Java backends, web interfaces, and cloud. Built to work
+                  together.
+                </span>
               </p>
               <div className="hero-actions">
                 <Button asChild className="primary-button">

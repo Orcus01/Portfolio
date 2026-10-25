@@ -60,3 +60,7 @@ The owner will add certificate verification, award-result, and community-event U
 ## Orange energy trail
 
 A procedural Canvas 2D torus-knot ribbon follows the desktop cursor with spring-like easing and a trailing light filament. Mobile uses a smaller autonomous glow while the hero is visible. No new dependency or image asset is required. Rendering is capped at 60 fps on desktop / 30 fps for the smaller treatment, pixel ratio is capped at 1.5, hidden tabs pause, mobile animation stops outside the hero, and reduced-motion users receive no animated trail. The canvas is decorative, hidden from accessibility tools, and never intercepts clicks.
+
+## Compact mobile hero
+
+At widths up to 600 px, the hero groups the name, avatar and introduction into a compact centred composition. Repeated role text, the second resume action, replay button and scroll label are removed on phones. The desktop hero is retained. Checked 320, 360, 390, 430, 600, 768 and 1440 px for overflow; the 390 px hero is approximately 705 px tall.

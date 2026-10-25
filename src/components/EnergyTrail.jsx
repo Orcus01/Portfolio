@@ -82,7 +82,7 @@ export default function EnergyTrail() {
         targetX =
           width * (desktop ? 0.18 : 0.14) +
           Math.sin(phase * 0.4) * (desktop ? 60 : 10);
-        targetY = height * (desktop ? 0.48 : 0.66) + Math.cos(phase * 0.55) * 36;
+        targetY = height * (desktop ? 0.48 : 0.36) + Math.cos(phase * 0.55) * 36;
       }
       const follow = 1 - Math.exp(-dt * 12);
       x += (targetX - x) * follow;

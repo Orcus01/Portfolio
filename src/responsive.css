@@ -2405,3 +2405,95 @@ footer .brand-name {
     display: none;
   }
 }
+
+/* Mobile hero: one compact identity, portrait and introduction. */
+.mobile-description {
+  display: none;
+}
+@media (max-width: 600px) {
+  .hero.personal-hero {
+    padding-top: 92px;
+    padding-bottom: 32px;
+    min-height: auto;
+  }
+  .personal-hero .hero-meta,
+  .mobile-role-line {
+    display: none;
+  }
+  .personal-hero h1 {
+    justify-content: center;
+    font-size: 9.4vw;
+    margin: 14px 0 0;
+    line-height: 1.1;
+  }
+  .personal-hero .portrait-stage {
+    padding-top: 12px;
+    gap: 16px;
+  }
+  .hero-person.portrait-experience {
+    order: 0;
+    height: clamp(220px, 65vw, 280px);
+    width: 88%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .hero-introduction {
+    order: 1;
+    text-align: center;
+  }
+  .hero-introduction .current-role {
+    justify-content: center;
+    font-size: 12px !important;
+    margin-bottom: 14px;
+  }
+  .hero-introduction h2 {
+    font-size: clamp(23px, 6.5vw, 29px);
+    line-height: 1.22;
+    margin: 0;
+  }
+  .hero-introduction h2 em {
+    font-size: 1.28em;
+  }
+  .hero-introduction .hero-description {
+    font-size: 15px;
+    line-height: 1.65;
+    max-width: 32ch;
+    margin: 18px auto 22px;
+  }
+  .desktop-description {
+    display: none;
+  }
+  .mobile-description {
+    display: inline;
+  }
+  .hero-introduction .hero-actions {
+    justify-content: center;
+    margin-top: 0;
+  }
+  .hero-actions .primary-button {
+    min-height: 48px;
+    min-width: 190px;
+    font-size: 14px !important;
+  }
+  .hero-actions .secondary-button,
+  .portrait-controls,
+  .personal-hero .hero-bottom {
+    display: none;
+  }
+  .header {
+    height: 54px;
+  }
+}
+@media (max-width: 360px) {
+  .hero.personal-hero {
+    padding-top: 86px;
+    padding-bottom: 28px;
+  }
+  .personal-hero .portrait-stage {
+    gap: 12px;
+  }
+  .hero-introduction .hero-description {
+    font-size: 14px;
+    margin-block: 14px 18px;
+  }
+}
