@@ -48,3 +48,11 @@ A startup script applies the saved theme before first paint. Rendering failures 
 ## GitHub Pages
 
 The public site is hosted at https://orcus01.github.io/Portfolio/. Build with `npm run build:pages` and publish the contents of `dist/` to the `gh-pages` branch. The regular `npm run build` retains root-path hosting support.
+
+## October 2026 design refinement
+
+The hero retains the avatar, one annotation and the desktop slide transition. Mobile introduces the role and actions before the avatar. Skills are integrated into the About diagram; GitHub is a compact subsection. Project names lead, case studies include product visuals, role, problem, decisions and delivery. Repeated lower-page entrance effects and the cursor spotlight were removed.
+
+`src/data/caseStudies.js` holds case-study copy. `src/components/ProjectVisual.jsx` renders real project captures and the labelled LabConnect architecture overview. The Seats & Spaces screenshot was captured from its live public storefront on 25 October 2026; it does not represent private admin screens. LabConnect’s diagram summarises the supplied training-project details. It is not a screenshot or a performance claim.
+
+The owner will add certificate verification, award-result, and community-event URLs later. No verification badges or invented proof links are displayed. Existing GitHub, live-site and IEEE publication links remain available.

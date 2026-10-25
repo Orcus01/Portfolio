@@ -19,6 +19,8 @@ import { AiFillGithub as Github } from "react-icons/ai";
 import { BlurFade } from "./components/ui/blur-fade";
 import { Button } from "./components/ui/button";
 import BrandMark from "./components/BrandMark";
+import ProjectVisual from "./components/ProjectVisual";
+import { caseStudies } from "./data/caseStudies";
 import {
   profile,
   projects,
@@ -28,9 +30,6 @@ import {
 } from "./data/portfolio";
 import repositories from "./data/github.json";
 import avatar from "./assets/japneet-balanced-avatar.png";
-import kissanHome from "./assets/projects/kissan-home.png";
-import kissanDiagnosis from "./assets/projects/kissan-diagnosis.png";
-import raahiHome from "./assets/projects/raahi-home.png";
 import {
   motion,
   useScroll,
@@ -59,25 +58,10 @@ function isBackdropClick(event) {
   );
 }
 function RevealSection({ children, className = "", ...props }) {
-  const reduced = useReducedMotion();
   return (
-    <motion.section
-      {...props}
-      className={`${className} reveal-section`}
-      initial={reduced ? false : "hidden"}
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.08 }}
-      variants={{
-        hidden: { opacity: 0, y: 38 },
-        visible: {
-          opacity: 1,
-          y: 0,
-          transition: { duration: 0.7, staggerChildren: 0.1 },
-        },
-      }}
-    >
+    <section {...props} className={className}>
       {children}
-    </motion.section>
+    </section>
   );
 }
 function CareerTimeline({ children }) {
@@ -190,49 +174,17 @@ function SystemDrawing() {
           </button>
         ))}
       </div>
-    </div>
-  );
-}
-function ProjectArt({ project }) {
-  return (
-    <div className={`project-art art-${project.theme}`} aria-hidden="true">
-      <span className="art-index">{project.type}</span>
-      {project.id === "seats" ? (
-        <div className="chair">
-          <div className="chair-back" />
-          <div className="chair-seat" />
-          <i />
-          <i />
-          <span>Spaces for living.</span>
-        </div>
-      ) : project.id === "lab" ? (
-        <div className="lab-flow">
-          <span>ORDER</span>
-          <i />
-          <strong>
-            LC<span>LabConnect</span>
-          </strong>
-          <i />
-          <span>RESULT</span>
-        </div>
-      ) : project.id === "kissan" ? (
-        <div className="app-screens">
-          <img src={kissanHome} alt="" loading="lazy" />
-          <img src={kissanDiagnosis} alt="" loading="lazy" />
-          <span>KISSAN KONNECT</span>
-        </div>
-      ) : (
-        <div className="browser-preview">
-          <div>
-            <i />
-            <i />
-            <i />
-            <span>raahi / placement stories</span>
-          </div>
-          <img src={raahiHome} alt="" loading="lazy" />
-        </div>
-      )}
-      <span className="art-year">{project.year} ↗</span>
+      <div className="layer-detail" aria-live="polite">
+        <strong>{layers[layer][0]}</strong>
+        <p>
+          {(layer === 0
+            ? skillGroups[1].slice(1)
+            : layer === 1
+              ? skillGroups[0].slice(1)
+              : [...skillGroups[2].slice(1), ...skillGroups[3].slice(1)]
+          ).join(" · ")}
+        </p>
+      </div>
     </div>
   );
 }
@@ -270,16 +222,12 @@ function CursorCompanion() {
   return (
     <div className="cursor-companion" aria-hidden="true">
       <motion.div
-        className="cursor-aura"
-        style={{ left: smoothX, top: smoothY }}
-      />
-      <motion.div
         className="cursor-orbit"
         style={{ left: smoothX, top: smoothY }}
         animate={{
-          width: hovered ? 44 : 22,
-          height: hovered ? 44 : 22,
-          opacity: hovered ? 0.8 : 0.5,
+          width: hovered ? 32 : 12,
+          height: hovered ? 32 : 12,
+          opacity: hovered ? 0.4 : 0,
         }}
         transition={{ duration: 0.2 }}
       />
@@ -421,20 +369,6 @@ function PersonalHero() {
       detail:
         "I like understanding how the pieces fit before deciding what to build. From banking platforms to plant diagnosis, every project starts with a problem worth understanding.",
     },
-    {
-      id: "craft",
-      label: "The craft",
-      title: "Interfaces with feeling.\nSystems with backbone.",
-      detail:
-        "Java and Spring under the hood. React, Next.js, and Angular at the surface. I care about the space where the experience and the engineering meet.",
-    },
-    {
-      id: "people",
-      label: "The people",
-      title: "Better together.\nAlways.",
-      detail:
-        "IEEE leadership and developer community volunteering taught me to listen, share ownership, and make space for different perspectives.",
-    },
   ];
   return (
     <div ref={stage} className="hero-scroll-scene">
@@ -468,6 +402,9 @@ function PersonalHero() {
           ))}
         </h1>
         <div className="portrait-stage">
+          <p className="mobile-role-line">
+            Java full-stack developer · Web & cloud
+          </p>
           <div className="portrait-halo" aria-hidden="true" />
           <PortraitExperience stage={stage} />
           <div className="hero-introduction">
@@ -476,14 +413,13 @@ function PersonalHero() {
                 <i /> Currently at <strong>Cognizant</strong>
               </span>
               <h2>
-                I turn complex ideas
+                Software that works.
                 <br />
-                into things that <em>work.</em>
+                <em>From screen to system.</em>
               </h2>
               <p>
-                Full-stack development, cloud infrastructure,
-                <br />
-                and the details that make it all connect.
+                I build Java backends, web interfaces, and the cloud
+                infrastructure that connects them.
               </p>
               <div className="hero-actions">
                 <Button asChild className="primary-button">
@@ -543,9 +479,6 @@ function PersonalHero() {
               </motion.div>
             ))}
           </div>
-          <span className="portrait-label" aria-hidden="true">
-            more than the code ↗
-          </span>
         </div>
         <div className="hero-bottom">
           <span>JAVA / SPRING / REACT / CLOUD</span>
@@ -758,13 +691,11 @@ export default function App() {
           <SectionLabel number="01">SELECTED WORK</SectionLabel>
           <div className="section-heading">
             <h2>
-              From the idea.
-              <br />
-              <em>To the real thing.</em>
+              Selected work<span className="heading-count">04</span>
             </h2>
             <p>
-              Commerce, connected services, and tools with a purpose. A
-              selection of things I’ve built and learned from.
+              Web, mobile, and backend projects. Explore the product, my
+              contribution, and the engineering behind it.
             </p>
           </div>
           <div className="project-toolbar">
@@ -814,7 +745,7 @@ export default function App() {
                     aria-label={`Read about ${p.title}`}
                     onClick={() => setSelected(p)}
                   >
-                    <ProjectArt project={p} />
+                    <ProjectVisual project={p} />
                     <div className="project-story">
                       <span className="eyebrow">
                         0{projects.indexOf(p) + 1} / {p.category} / {p.year}
@@ -822,15 +753,20 @@ export default function App() {
                       <div className="project-title">
                         <h3>{p.title}</h3>
                       </div>
-                      <h4>{p.subtitle}</h4>
-                      <p>{p.description}</p>
+                      <p className="project-summary">
+                        {caseStudies[p.id].summary}
+                      </p>
+                      <p className="project-role">{caseStudies[p.id].role}</p>
+                      <p className="project-evidence">
+                        {caseStudies[p.id].evidence}
+                      </p>
                       <div className="project-stack">
                         {p.stack.slice(0, 4).map((t) => (
                           <span key={t}>{t}</span>
                         ))}
                       </div>
                       <span className="case-link">
-                        Explore the build{" "}
+                        View case study{" "}
                         <span className="project-arrow">
                           <ArrowUpRight size={19} />
                         </span>
@@ -859,43 +795,32 @@ export default function App() {
         </section>
         <section id="about" className="section about-section">
           <SectionLabel number="02">THE PERSON BEHIND THE CODE</SectionLabel>
-          <div className="about-layout">
-            <div className="portrait-wrap">
-              <img
-                src={avatar}
-                alt="Japneet Singh"
-                width="1142"
-                height="1377"
-                loading="lazy"
-              />
-              <div className="portrait-caption">
-                <span>JAPNEET SINGH</span>
-                <span>ENGINEER. ALWAYS A STUDENT.</span>
-              </div>
-              <span className="portrait-stamp" aria-hidden="true">
-                JS.
-              </span>
-            </div>
+          <div className="about-capabilities">
             <div className="about-copy">
-              <h2>
-                A little curiosity.
-                <br />
-                <em>A lot of making.</em>
-              </h2>
+              <div className="about-identity">
+                <img
+                  src={avatar}
+                  width="1142"
+                  height="1377"
+                  alt="Japneet Singh avatar"
+                  loading="lazy"
+                />
+                <div>
+                  <span className="eyebrow">JAPNEET SINGH</span>
+                  <h2>Built with curiosity.</h2>
+                </div>
+              </div>
               <p>
-                I’m a software developer drawn to the point where a useful idea
-                becomes a reliable product. I enjoy connecting the pieces: an
-                interface that feels clear, an API that makes sense, and a
-                backend that holds up.
+                I’m a software developer at Cognizant, working across Java, web
+                interfaces, banking platforms, and cloud infrastructure.
               </p>
               <p>
-                My work spans Java and Spring, web and mobile interfaces, cloud
-                infrastructure, and a published project in plant disease
-                diagnosis. Outside the code, IEEE leadership taught me how to
-                bring people together and turn plans into events.
+                Outside work, I’ve built mobile applications, contributed to
+                published plant-disease research, and helped organise IEEE
+                communities.
               </p>
               <a className="text-link" href={profile.resume} {...external}>
-                The full story, in one page <Download size={16} />
+                Read my resume <Download size={17} />
               </a>
               <div className="education-note">
                 <small>EDUCATION / 2021–2025</small>
@@ -905,41 +830,19 @@ export default function App() {
                 </span>
               </div>
             </div>
-          </div>
-          <div className="skills-layout">
-            {skillGroups.map(([title, ...items]) => (
-              <div key={title}>
-                <h3>{title}</h3>
-                <p>{items.join(" / ")}</p>
-              </div>
-            ))}
+            <div className="capability-panel">
+              <h3>How I build</h3>
+              <p className="capability-intro">
+                Select a layer to explore the tools I work with.
+              </p>
+              <SystemDrawing />
+            </div>
           </div>
         </section>
-        <RevealSection className="section approach-section">
-          <SectionLabel number="↳">HOW THE PIECES FIT</SectionLabel>
-          <div className="approach-layout">
-            <div>
-              <h2>
-                Good on the surface.
-                <br />
-                <em>Solid underneath.</em>
-              </h2>
-              <p>
-                My work connects the interface, application, and infrastructure.
-                Explore a layer to see where each tool belongs.
-              </p>
-            </div>
-            <SystemDrawing />
-          </div>
-        </RevealSection>
         <RevealSection id="experience" className="section experience-section">
           <SectionLabel number="03">EXPERIENCE & DIRECTION</SectionLabel>
           <div className="section-heading">
-            <h2>
-              Experience.
-              <br />
-              <em>Built on practice.</em>
-            </h2>
+            <h2>Experience</h2>
             <p>
               From mobile development to enterprise platforms — a practice
               shaped by hands-on work.
@@ -987,20 +890,14 @@ export default function App() {
               <span>
                 Microsoft Certified: Azure Fundamentals <small>AZ-900</small>
               </span>
-              <span>
-                GitHub Copilot Certification <Check size={16} />
-              </span>
+              <span>GitHub Copilot Certification</span>
             </div>
           </div>
         </RevealSection>
         <RevealSection className="section recognition-section" id="recognition">
           <SectionLabel number="04">BEYOND THE DAY JOB</SectionLabel>
           <div className="section-heading">
-            <h2>
-              Beyond the build.
-              <br />
-              <em>Research & community.</em>
-            </h2>
+            <h2>Beyond the code</h2>
           </div>
           <div className="recognition-list">
             {recognition.map(([n, title, result, context]) => (
@@ -1023,11 +920,7 @@ export default function App() {
           <div className="beyond-grid">
             <article>
               <span className="eyebrow">RESEARCH / IEEE SSITCON 2024</span>
-              <h3>
-                Technology that
-                <br />
-                takes root.
-              </h3>
+              <h3>Kissan Konnect</h3>
               <p>
                 Kissan Konnect: AI-Powered Plant Disease Control System.
                 Research on CNN-based diagnosis, connected to a mobile
@@ -1063,59 +956,53 @@ export default function App() {
               </ul>
             </article>
           </div>
-        </RevealSection>
-        <RevealSection className="section github-section" id="github">
-          <SectionLabel number="05">IN THE OPEN</SectionLabel>
-          <div className="section-heading">
-            <h2>
-              Open source.
-              <br />
-              <em>Always exploring.</em>
-            </h2>
-            <div>
-              <p>Experiments, practice, and public repositories.</p>
+          <div className="github-compact" id="github">
+            <div className="github-intro">
+              <Github size={24} />
+              <div>
+                <h3>More on GitHub</h3>
+                <p>Experiments, practice, and public source.</p>
+              </div>
               <a className="text-link" href={profile.github} {...external}>
-                github.com/Orcus01 <ArrowUpRight size={16} />
+                View profile <ArrowUpRight size={17} />
               </a>
             </div>
+            <details className="repo-disclosure">
+              <summary>
+                Browse {repositories.length} public repositories{" "}
+                <Plus size={18} />
+              </summary>
+              <div className="repo-list">
+                {repositories.map((r) => (
+                  <a key={r.name} href={r.html_url} {...external}>
+                    <Github size={18} />
+                    <strong>{r.name}</strong>
+                    <span>{r.language || "Repository"}</span>
+                    <small>
+                      {new Date(r.updated_at).toLocaleDateString("en-GB", {
+                        month: "short",
+                        year: "numeric",
+                      })}
+                    </small>
+                    <ArrowUpRight size={18} />
+                  </a>
+                ))}
+              </div>
+            </details>
           </div>
-          <details className="repo-disclosure">
-            <summary>
-              Browse {repositories.length} public repositories{" "}
-              <Plus size={18} />
-            </summary>
-            <div className="repo-list">
-              {repositories.map((r) => (
-                <a key={r.name} href={r.html_url} {...external}>
-                  <Github size={18} />
-                  <strong>{r.name}</strong>
-                  <span>{r.language || "Repository"}</span>
-                  <small>
-                    {new Date(r.updated_at).toLocaleDateString("en-GB", {
-                      month: "short",
-                      year: "numeric",
-                    })}
-                  </small>
-                  <ArrowUpRight size={18} />
-                </a>
-              ))}
-            </div>
-          </details>
-          <p className="snapshot-note">
-            Public GitHub snapshot · Updated 24 October 2026
-          </p>
         </RevealSection>
         <RevealSection id="contact" className="contact-section">
           <div className="contact-top">
-            <span className="eyebrow">06 / NEXT CONVERSATION</span>
+            <span className="eyebrow">05 / GET IN TOUCH</span>
             <span>GOOD THINGS START WITH A HELLO.</span>
           </div>
           <h2>
-            Have something
-            <br />
-            in <em>mind?</em>
-            <span>↗</span>
+            <span className="contact-line">Let’s build</span>
+            <em className="contact-line">something good.</em>
           </h2>
+          <a className="contact-cta" href={`mailto:${profile.email}`}>
+            Email me <ArrowUpRight size={22} />
+          </a>
           <div className="contact-bottom">
             <div>
               <a className="email-link" href={`mailto:${profile.email}`}>
@@ -1182,18 +1069,40 @@ export default function App() {
                 {selected.type} / {selected.year}
               </span>
               <h2 id="detail-title">{selected.title}</h2>
-              <p className="dialog-intro">{selected.description}</p>
-              <div className="project-stack">
-                {selected.stack.map((t) => (
-                  <span key={t}>{t}</span>
-                ))}
+              <p className="dialog-intro">{caseStudies[selected.id].summary}</p>
+              <ProjectVisual project={selected} />
+              <div className="case-meta">
+                <div>
+                  <span>MY ROLE</span>
+                  <strong>{caseStudies[selected.id].role}</strong>
+                </div>
+                <div>
+                  <span>BUILT WITH</span>
+                  <strong>{selected.stack.join(" · ")}</strong>
+                </div>
               </div>
-              <h3>Inside the build</h3>
-              <ul>
-                {selected.highlights.map((h) => (
-                  <li key={h}>{h}</li>
-                ))}
-              </ul>
+              <div className="case-narrative">
+                <section>
+                  <h3>The problem</h3>
+                  <p>{caseStudies[selected.id].problem}</p>
+                </section>
+                <section>
+                  <h3>My contribution</h3>
+                  <p>{caseStudies[selected.id].contribution}</p>
+                </section>
+                <section>
+                  <h3>Engineering decisions</h3>
+                  <ul>
+                    {selected.highlights.map((h) => (
+                      <li key={h}>{h}</li>
+                    ))}
+                  </ul>
+                </section>
+                <section>
+                  <h3>What it delivers</h3>
+                  <p>{caseStudies[selected.id].outcome}</p>
+                </section>
+              </div>
               {selected.sourceNote && (
                 <p className="source-note">{selected.sourceNote}</p>
               )}

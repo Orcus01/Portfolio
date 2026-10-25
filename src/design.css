@@ -307,14 +307,6 @@ h2 em {
   left: 9%;
   top: 26px;
 }
-.note-craft {
-  right: 0;
-  top: 45px;
-}
-.note-people {
-  right: 3%;
-  bottom: 90px;
-}
 .sketch-arrow {
   position: absolute;
   left: -100px;
@@ -332,12 +324,6 @@ h2 em {
   top: -10px;
   transform: rotate(9deg);
 }
-.note-people .sketch-arrow {
-  transform: rotate(-22deg);
-  left: -95px;
-  top: -10px;
-  width: 100px;
-}
 .note-detail {
   position: absolute;
   top: 100%;
@@ -351,16 +337,6 @@ h2 em {
   line-height: 1.8;
   box-shadow: 0 15px 40px #0004;
   z-index: 10;
-}
-.portrait-label {
-  position: absolute;
-  left: 43%;
-  bottom: 16px;
-  font-family: "Caveat", cursive;
-  font-size: 20px;
-  color: var(--muted);
-  z-index: 5;
-  transform: rotate(-4deg);
 }
 .hero-bottom {
   display: flex;
@@ -450,20 +426,6 @@ h2 em {
   align-items: center;
   gap: 7%;
 }
-.project-art {
-  aspect-ratio: 1.3;
-  border-radius: 18px;
-  min-width: 0;
-  direction: ltr;
-  transform: translateY(0);
-  transition:
-    transform 0.6s,
-    filter 0.4s;
-}
-.project-open:hover .project-art {
-  transform: translateY(-5px);
-  filter: saturate(1.08);
-}
 .project-story > .eyebrow {
   font-size: 8px;
   letter-spacing: 1px;
@@ -477,13 +439,6 @@ h2 em {
   letter-spacing: 0;
   color: var(--accent);
   font-weight: 600;
-}
-.project-story h4 {
-  font-size: clamp(23px, 2.8vw, 35px);
-  line-height: 1.2;
-  letter-spacing: -1.2px;
-  font-weight: 500;
-  margin: 0 0 18px;
 }
 .project-story > p {
   font-size: 11px;
@@ -518,42 +473,6 @@ h2 em {
 .project-open:hover .project-arrow {
   transform: translate(3px, -3px);
 }
-.art-commerce {
-  background: #a6b49d;
-}
-.art-index {
-  font-family: monospace;
-  letter-spacing: 1px;
-  opacity: 0.8;
-}
-.art-year {
-  font-family: monospace;
-  letter-spacing: 1px;
-}
-.chair {
-  transform: translate(-50%, -50%) rotate(-12deg) scale(1.2);
-}
-.project-open:hover .chair {
-  transform: translate(-50%, -50%) rotate(-6deg) scale(1.2);
-}
-.art-lab {
-  background: #d5d8e5;
-  color: #333c63;
-}
-.lab-flow strong {
-  background: #434b75;
-  box-shadow:
-    0 0 0 22px #c3c8da,
-    0 0 0 23px #a0a9c5;
-  color: #f3f2f8;
-}
-.lab-flow > span {
-  border-color: #979fbb;
-  background: #e5e8f2;
-}
-.art-plant {
-  background: #203e30;
-}
 .art-raahi {
   background: #e6c6ad;
 }
@@ -569,41 +488,6 @@ h2 em {
   padding-bottom: 65px;
   border-radius: 22px;
 }
-.about-layout {
-  gap: 10%;
-  grid-template-columns: 0.9fr 1.3fr;
-}
-.portrait-wrap {
-  transform: rotate(-5deg);
-  max-width: 300px;
-  padding: 0;
-  border: 0;
-  border-radius: 12px;
-  background: var(--paper);
-  box-shadow: 0 10px 45px #0002;
-}
-.portrait-wrap img {
-  aspect-ratio: 0.85;
-  object-fit: cover;
-  object-position: top;
-  filter: none;
-  mix-blend-mode: normal;
-  border-radius: 12px 12px 0 0;
-}
-.portrait-caption {
-  padding: 15px 12px;
-  font-family: monospace;
-  font-size: 6px;
-}
-.portrait-stamp {
-  border-radius: 50%;
-  font-family: "Caveat", cursive;
-  right: -22px;
-  bottom: 2px;
-  background: var(--accent);
-  color: #181211;
-  transform: rotate(12deg);
-}
 .about-copy h2 {
   font-size: 44px;
   line-height: 1.15;
@@ -618,42 +502,8 @@ h2 em {
 .education-note {
   margin-top: 25px;
 }
-.skills-layout {
-  margin-top: 50px;
-}
-.skills-layout h3 {
-  font-size: 12px;
-}
-.skills-layout p {
-  font-size: 10px;
-  line-height: 2.1;
-}
 .text-link {
   font-size: 11px;
-}
-.approach-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10%;
-  align-items: center;
-}
-.approach-layout h2 {
-  font-size: 42px;
-}
-.approach-layout > div > p {
-  font-size: 12px;
-  color: var(--muted);
-  line-height: 1.9;
-  max-width: 350px;
-  margin-top: 23px;
-}
-.approach-layout .system-drawing svg {
-  margin: 0;
-  max-height: 300px;
-}
-.approach-layout .drawing-caption {
-  font-family: monospace;
-  font-size: 7px;
 }
 .diagram-layer.layer-2 {
   fill: #815a45;
@@ -704,9 +554,6 @@ h2 em {
 }
 .repo-list > a:hover {
   padding-left: 10px;
-}
-.snapshot-note {
-  font-family: monospace;
 }
 .contact-section {
   background: var(--soft);
@@ -828,14 +675,6 @@ footer > .wordmark > .monogram {
     left: 5%;
     top: 35px;
   }
-  .note-craft {
-    right: 0;
-    top: 50px;
-  }
-  .note-people {
-    right: 0;
-    bottom: 90px;
-  }
   .personal-note button {
     max-width: 185px;
   }
@@ -861,23 +700,14 @@ footer > .wordmark > .monogram {
   .project-open {
     gap: 6%;
   }
-  .project-story h4 {
-    font-size: 26px;
-  }
   .project-story > p {
     font-size: 10px;
   }
   .project-stack {
     font-size: 7px;
   }
-  .chair {
-    transform: translate(-50%, -50%) rotate(-12deg) scale(1);
-  }
   .about-section {
     padding-top: 60px;
-  }
-  .approach-layout h2 {
-    font-size: 34px;
   }
   .brand-name > small {
     font-size: 5px;
@@ -1002,13 +832,6 @@ footer > .wordmark > .monogram {
     left: 0;
     top: 8px;
   }
-  .note-craft {
-    right: -5px;
-    top: 245px;
-  }
-  .note-people {
-    display: none;
-  }
   .personal-note button > span {
     font-size: 17px;
   }
@@ -1025,29 +848,12 @@ footer > .wordmark > .monogram {
     top: 29px;
     transform: rotate(30deg);
   }
-  .note-craft .sketch-arrow {
-    width: 65px;
-    left: -45px;
-    top: -13px;
-    transform: rotate(-25deg);
-  }
   .note-detail {
     width: 200px;
     font-size: 10px;
     left: -5px;
     top: 105%;
     padding: 13px;
-  }
-  .note-craft .note-detail {
-    left: auto;
-    right: 0;
-  }
-  .portrait-label {
-    font-size: 17px;
-    left: 10%;
-    bottom: auto;
-    top: 340px;
-    transform: rotate(-8deg);
   }
   .hero-bottom {
     font-size: 6px;
@@ -1109,11 +915,6 @@ footer > .wordmark > .monogram {
   .project-grid > div:nth-child(even) .project-open {
     direction: ltr;
   }
-  .project-art {
-    width: 100%;
-    aspect-ratio: 1.3;
-    border-radius: 13px;
-  }
   .project-story {
     width: 100%;
   }
@@ -1125,12 +926,6 @@ footer > .wordmark > .monogram {
   }
   .project-title h3 {
     font-size: 13px;
-  }
-  .project-story h4 {
-    font-size: 25px;
-    letter-spacing: -0.8px;
-    max-width: 300px;
-    margin-bottom: 13px;
   }
   .project-story > p {
     font-size: 11px;
@@ -1146,13 +941,6 @@ footer > .wordmark > .monogram {
     padding-bottom: 10px;
     margin-top: 2px;
   }
-  .art-index {
-    font-size: 7px;
-  }
-  .lab-flow strong {
-    width: 100px;
-    height: 100px;
-  }
   .raahi-art {
     font-size: 110px;
   }
@@ -1162,46 +950,11 @@ footer > .wordmark > .monogram {
     padding-top: 50px;
     padding-bottom: 40px;
   }
-  .portrait-wrap {
-    max-width: 240px;
-    width: 75%;
-    margin: 12px auto 0;
-  }
-  .portrait-wrap img {
-    aspect-ratio: 0.8;
-  }
-  .about-layout {
-    gap: 36px;
-  }
   .about-copy h2 {
     font-size: 36px;
   }
   .about-copy > p {
     font-size: 11px;
-  }
-  .skills-layout {
-    gap: 20px;
-    margin-top: 35px;
-  }
-  .skills-layout h3 {
-    font-size: 11px;
-  }
-  .skills-layout p {
-    font-size: 9px;
-  }
-  .approach-layout {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-  .approach-layout h2 {
-    font-size: 35px;
-  }
-  .approach-layout > div > p {
-    font-size: 11px;
-    margin-top: 20px;
-  }
-  .approach-layout .system-drawing svg {
-    max-height: 275px;
   }
   .layer-controls small {
     font-size: 6px;
@@ -1250,9 +1003,6 @@ footer > .wordmark > .monogram {
   }
   .repo-list > a > span {
     font-size: 6px;
-  }
-  .github-section {
-    padding-bottom: 60px;
   }
   .contact-section {
     padding: 30px 6% 35px;
@@ -1316,12 +1066,6 @@ footer > .wordmark > .monogram {
   .hero-person {
     height: 340px;
   }
-  .note-craft {
-    top: 225px;
-  }
-  .portrait-label {
-    top: 315px;
-  }
   .personal-note button > span {
     font-size: 15px;
   }
@@ -1344,111 +1088,6 @@ footer > .wordmark > .monogram {
   height: 100%;
   width: 100%;
   position: relative;
-}
-.app-screens {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  padding: 55px 30px 10px;
-  transform: rotate(-8deg);
-  transition: transform 0.5s;
-}
-.app-screens img {
-  width: 32%;
-  height: auto;
-  border-radius: 20px;
-  box-shadow: 0 18px 30px #0005;
-}
-.app-screens img + img {
-  transform: translateY(30px);
-}
-.app-screens > span {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  font: 8px monospace;
-  text-align: center;
-  letter-spacing: 3px;
-  transform: rotate(8deg);
-}
-.project-open:hover .app-screens {
-  transform: rotate(-3deg) translateY(-5px);
-}
-.art-plant .art-index {
-  z-index: 3;
-}
-.browser-preview {
-  position: absolute;
-  width: 90%;
-  left: 9%;
-  top: 22%;
-  box-shadow: -12px 20px 30px #73482a33;
-  border-radius: 8px 8px 0 0;
-  overflow: hidden;
-  transform: rotate(-5deg);
-  transition: transform 0.5s;
-  background: white;
-}
-.browser-preview > div {
-  height: 25px;
-  background: #faf7f2;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 0 10px;
-  color: #806449;
-}
-.browser-preview > div > i {
-  display: block;
-  width: 4px;
-  height: 4px;
-  background: #d6c3ac;
-  border-radius: 50%;
-}
-.browser-preview > div > span {
-  font: 6px monospace;
-  padding-left: 10px;
-}
-.browser-preview img {
-  width: 100%;
-  height: auto;
-}
-.project-open:hover .browser-preview {
-  transform: rotate(-2deg) translateY(-5px);
-}
-@media (max-width: 760px) {
-  .app-screens {
-    padding: 50px 10px 10px;
-    gap: 15px;
-  }
-  .app-screens img {
-    width: 34%;
-    border-radius: 12px;
-  }
-  .browser-preview {
-    top: 24%;
-  }
-  .app-screens > span {
-    font-size: 6px;
-  }
-  .browser-preview > div {
-    height: 18px;
-  }
-  .browser-preview > div > span {
-    font-size: 5px;
-  }
-}
-@media (max-width: 760px) {
-  :root[data-theme="light"] .note-craft button {
-    background: color-mix(in srgb, var(--paper) 93%, transparent);
-    border-radius: 9px;
-    padding: 8px;
-    box-shadow: 0 3px 15px #0001;
-  }
 }
 /* Camera reveal, responsive portrait depth, and sliding project chapters. */
 .sliding-name {
@@ -1589,11 +1228,6 @@ footer > .wordmark > .monogram {
   padding: 0 8px;
   min-width: 30px;
 }
-.portrait-label {
-  bottom: 45px;
-  font-size: 18px;
-  pointer-events: none;
-}
 .project-chapter {
   position: relative;
   background: var(--paper);
@@ -1603,9 +1237,6 @@ footer > .wordmark > .monogram {
 }
 .project-grid {
   gap: 30px;
-}
-.project-chapter .project-art {
-  overflow: hidden;
 }
 .project-chapter .project-story {
   transition: transform 0.5s;
@@ -1626,11 +1257,6 @@ footer > .wordmark > .monogram {
   .project-grid {
     padding-bottom: 35px;
   }
-  .project-art {
-    transition:
-      transform 0.6s,
-      filter 0.4s;
-  }
 }
 @media (max-width: 760px) {
   .sliding-name {
@@ -1647,12 +1273,6 @@ footer > .wordmark > .monogram {
   .portrait-controls .replay-photo {
     font-size: 16px;
   }
-  .portrait-label {
-    top: 310px;
-    bottom: auto;
-    font-size: 15px;
-    left: 7%;
-  }
   .hero-person.portrait-experience {
     height: 375px;
   }
@@ -1668,9 +1288,6 @@ footer > .wordmark > .monogram {
   .camera-focus i {
     width: 10px;
     height: 10px;
-  }
-  .note-craft {
-    top: 230px;
   }
   .portrait-stage {
     height: 630px;
@@ -1691,11 +1308,5 @@ footer > .wordmark > .monogram {
   }
   .project-chapter .project-open:hover .project-story {
     transform: none;
-  }
-}
-@media (max-width: 760px) {
-  .portrait-stage .note-craft,
-  .portrait-stage .portrait-label {
-    display: none;
   }
 }

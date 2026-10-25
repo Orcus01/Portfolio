@@ -78,13 +78,9 @@ a svg {
 .drawing-caption,
 .layer-controls small,
 .layer-controls > button > span,
-.art-index,
-.art-year,
 .project-stack,
 .timeline-date,
-.portrait-caption,
 .education-note small,
-.snapshot-note,
 .contact-top,
 footer,
 .recognition-row > span,
@@ -479,149 +475,6 @@ h2 {
   width: 100%;
   display: block;
 }
-.project-art {
-  aspect-ratio: 1.6;
-  position: relative;
-  overflow: hidden;
-  transition: filter 0.4s;
-}
-.project-open:hover .project-art {
-  filter: saturate(1.2);
-}
-.art-index,
-.art-year {
-  position: absolute;
-  font-size: 8px;
-  z-index: 1;
-}
-.art-index {
-  top: 22px;
-  left: 24px;
-}
-.art-year {
-  bottom: 18px;
-  right: 24px;
-}
-.art-commerce {
-  background: #dce0d2;
-  color: #344333;
-}
-.chair {
-  position: absolute;
-  width: 180px;
-  height: 210px;
-  left: 50%;
-  top: 51%;
-  transform: translate(-50%, -50%) rotate(-12deg);
-  transition: transform 0.5s;
-}
-.project-open:hover .chair {
-  transform: translate(-50%, -50%) rotate(-6deg);
-}
-.chair-back {
-  position: absolute;
-  top: 12px;
-  left: 26px;
-  width: 116px;
-  height: 105px;
-  background: repeating-linear-gradient(
-    90deg,
-    #49573b 0 11px,
-    #5f6d50 12px 14px
-  );
-  border-radius: 45px 45px 8px 8px;
-  box-shadow:
-    inset 5px 3px 0 #748165,
-    8px 6px 0 #36442e;
-}
-.chair-seat {
-  position: absolute;
-  top: 107px;
-  left: 17px;
-  width: 145px;
-  height: 38px;
-  background: #536244;
-  transform: skewX(-9deg);
-  border-radius: 8px;
-  box-shadow: 0 9px 0 #3d4a32;
-}
-.chair i {
-  position: absolute;
-  top: 145px;
-  height: 55px;
-  width: 9px;
-  background: #3e4a34;
-  left: 30px;
-  transform: rotate(6deg);
-}
-.chair i + i {
-  left: 135px;
-  transform: rotate(-6deg);
-}
-.chair > span {
-  position: absolute;
-  white-space: nowrap;
-  font-size: 39px;
-  font-weight: 500;
-  letter-spacing: -2px;
-  left: -75px;
-  top: 95px;
-  transform: rotate(12deg);
-  color: #fffbe9;
-  text-shadow: 0 1px 1px #49573b55;
-}
-.art-lab {
-  background: #dddcd4;
-  color: #343b36;
-}
-.lab-flow {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-}
-.lab-flow > span {
-  font:
-    8px "DM Mono",
-    monospace;
-  border: 1px solid #959c90;
-  padding: 9px;
-  background: #e9e9df;
-}
-.lab-flow i {
-  width: 20px;
-  height: 1px;
-  background: #9b9f95;
-}
-.lab-flow strong {
-  width: 110px;
-  height: 110px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: #333f35;
-  color: #ecefe3;
-  font-size: 39px;
-  font-weight: 500;
-  box-shadow:
-    0 0 0 17px #c4c9ba,
-    0 0 0 18px #a7af9e;
-  letter-spacing: -3px;
-}
-.lab-flow strong span {
-  font:
-    8px "DM Mono",
-    monospace;
-  letter-spacing: 0;
-}
-.art-plant {
-  background: #293d2e;
-  color: #e1e9cb;
-}
 .art-raahi {
   background: #e9d9c4;
   color: #6a452f;
@@ -712,48 +565,6 @@ h2 {
   background: var(--soft);
   padding-bottom: 65px;
 }
-.about-layout {
-  display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 12%;
-  align-items: center;
-}
-.portrait-wrap {
-  position: relative;
-  max-width: 350px;
-  padding: 15px 15px 0;
-  border: 1px solid var(--line);
-  transform: rotate(-3deg);
-  margin: 15px 0 15px 20px;
-}
-.portrait-wrap img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1;
-  object-fit: cover;
-  filter: grayscale(1);
-  mix-blend-mode: multiply;
-  display: block;
-  background: #d0d5c4;
-}
-.portrait-caption {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 16px 0;
-  font-size: 6px;
-}
-.portrait-stamp {
-  position: absolute;
-  right: -25px;
-  bottom: 5px;
-  background: var(--accent);
-  color: #fff5de;
-  font-size: 30px;
-  padding: 12px;
-  font-weight: 800;
-  transform: rotate(10deg);
-}
 .about-copy h2 {
   font-size: clamp(30px, 3.7vw, 49px);
   margin-bottom: 24px;
@@ -781,24 +592,6 @@ h2 {
 }
 .education-note > span {
   font-size: 10px;
-  color: var(--muted);
-}
-.skills-layout {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
-  border-top: 1px solid var(--line);
-  margin-top: 65px;
-  padding-top: 28px;
-}
-.skills-layout h3 {
-  font-size: 12px;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-.skills-layout p {
-  font-size: 11px;
-  line-height: 2;
   color: var(--muted);
 }
 .timeline {
@@ -1000,15 +793,6 @@ details li {
 }
 .repo-list > a > svg:first-child {
   color: var(--muted);
-}
-.snapshot-note {
-  text-align: right;
-  font-size: 8px;
-  color: var(--muted);
-  padding-top: 15px;
-}
-.github-section {
-  padding-bottom: 85px;
 }
 .contact-section {
   background: #293b2e;
@@ -1282,12 +1066,6 @@ dialog::backdrop {
   .section {
     padding-top: 75px;
   }
-  .about-layout {
-    gap: 8%;
-  }
-  .portrait-wrap {
-    margin-left: 0;
-  }
   .contact-section h2 > span {
     right: 0;
   }
@@ -1415,9 +1193,6 @@ dialog::backdrop {
     grid-template-columns: 1fr;
     gap: 32px;
   }
-  .project-art {
-    aspect-ratio: 1.5;
-  }
   .project-title h3 {
     font-size: 23px;
   }
@@ -1431,28 +1206,11 @@ dialog::backdrop {
     margin-top: 65px;
     padding-bottom: 40px;
   }
-  .about-layout {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  .portrait-wrap {
-    max-width: 280px;
-    margin: 15px auto 0;
-    width: 80%;
-  }
   .about-copy h2 {
     font-size: 35px;
   }
   .about-copy > p {
     font-size: 12px;
-  }
-  .skills-layout {
-    grid-template-columns: 1fr 1fr;
-    margin-top: 35px;
-    gap: 25px;
-  }
-  .skills-layout p {
-    font-size: 10px;
   }
   .timeline {
     margin-top: 30px;
@@ -1522,13 +1280,6 @@ dialog::backdrop {
   .repo-list > a > span {
     font-size: 7px;
   }
-  .snapshot-note {
-    font-size: 7px;
-    text-align: left;
-  }
-  .github-section {
-    padding-bottom: 55px;
-  }
   .contact-section {
     padding: 25px 6% 35px;
   }
@@ -1597,29 +1348,6 @@ dialog::backdrop {
   .mobile-menu {
     inset: 74px 0 0;
   }
-  .lab-flow {
-    gap: 13px;
-  }
-  .lab-flow > span {
-    font-size: 7px;
-    padding: 7px;
-  }
-  .lab-flow i {
-    width: 12px;
-  }
-  .lab-flow strong {
-    width: 90px;
-    height: 90px;
-    font-size: 32px;
-  }
-  .chair {
-    transform: translate(-50%, -50%) rotate(-12deg) scale(0.9);
-  }
-  .art-index {
-    font-size: 7px;
-    top: 17px;
-    left: 18px;
-  }
 }
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -1645,7 +1373,6 @@ dialog::backdrop {
   }
   .hero-composition,
   .project-grid,
-  .about-layout,
   .timeline article {
     display: block;
   }
@@ -1655,16 +1382,10 @@ dialog::backdrop {
   .section {
     padding-top: 30px;
   }
-  .project-art {
-    height: 120px;
-  }
   .project {
     break-inside: avoid;
   }
   .about-section {
-    margin-top: 20px;
-  }
-  .skills-layout {
     margin-top: 20px;
   }
   body {
