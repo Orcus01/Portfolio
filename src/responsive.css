@@ -1612,6 +1612,7 @@ footer > span:nth-child(2) {
   font-size: 15px;
 }
 .project-visual {
+  direction: ltr;
   margin: 0;
   width: 100%;
   min-width: 0;
