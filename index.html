@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="dark" class="site-booting">
   <head>
     <meta charset="UTF-8" />
     <script>
@@ -10,6 +10,20 @@
             : "dark";
       } catch {}
     </script>
+    <style>
+      html.site-booting { overflow: hidden; }
+      #site-loader { position: fixed; inset: 0; z-index: 1000; display: grid; place-content: center; justify-items: center; gap: 26px; background: #0c0d0e; color: #eeede8; font-family: sans-serif; }
+      html[data-theme="light"] #site-loader { background: #f5f2ed; color: #202022; }
+      .loader-mark { position: relative; width: 180px; height: 180px; display: grid; place-items: center; }
+      .loader-mark svg { position: absolute; inset: 0; width: 100%; height: 100%; animation: orcus-orbit 1.8s linear infinite; }
+      .loader-mark circle { fill: none; stroke-width: 1; }
+      .loader-mark .loader-track { stroke: currentColor; opacity: .13; }
+      .loader-mark .loader-arc { stroke: #f28c58; stroke-width: 2; stroke-linecap: round; stroke-dasharray: 95 350; }
+      .loader-mark strong { font-size: 23px; font-weight: 600; letter-spacing: .2em; margin-left: .2em; }
+      #site-loader > span { font: 9px monospace; letter-spacing: .22em; opacity: .5; }
+      @keyframes orcus-orbit { to { transform: rotate(360deg); } }
+      @media (prefers-reduced-motion: reduce) { .loader-mark svg { animation: none; } }
+    </style>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -26,6 +40,10 @@
     <title>Japneet Singh — Software Engineer</title>
   </head>
   <body>
+    <div id="site-loader" role="status" aria-label="Loading Orcus portfolio">
+      <div class="loader-mark"><svg viewBox="0 0 180 180" aria-hidden="true"><circle class="loader-track" cx="90" cy="90" r="70"/><circle class="loader-arc" cx="90" cy="90" r="70"/></svg><strong>ORCUS</strong></div>
+      <span>LOADING PORTFOLIO</span>
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

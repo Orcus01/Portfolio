@@ -19,8 +19,9 @@ import { AiFillGithub as Github } from "react-icons/ai";
 import { BlurFade } from "./components/ui/blur-fade";
 import { Button } from "./components/ui/button";
 import BrandMark from "./components/BrandMark";
-import EnergyTrail from "./components/EnergyTrail";
+import ThemeToggle from "./components/ThemeToggle";
 import ProjectVisual from "./components/ProjectVisual";
+import { RoleNotebook, WorkPortal, ProjectMotion, MagneticLink, ChapterTransition } from "./components/PortfolioMotion";
 import { caseStudies } from "./data/caseStudies";
 import {
   profile,
@@ -59,9 +60,20 @@ function isBackdropClick(event) {
   );
 }
 function RevealSection({ children, className = "", ...props }) {
+  const reduced = useReducedMotion();
   return (
-    <section {...props} className={className}>
-      {children}
+    <section {...props} className={`${className} scroll-reveal-section`}>
+      {React.Children.map(children, (child) => child && (
+        <motion.div
+          className="section-reveal-block"
+          initial={reduced ? false : { opacity: 0, y: 34 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.08, margin: "0px 0px -35px 0px" }}
+          transition={{ duration: reduced ? 0 : 0.7, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {child}
+        </motion.div>
+      ))}
     </section>
   );
 }
@@ -367,6 +379,7 @@ function PersonalHero() {
               <span className="current-role">
                 <i /> Currently at <strong>Cognizant</strong>
               </span>
+              <RoleNotebook />
               <h2>
                 Software that works.
                 <br />
@@ -383,11 +396,9 @@ function PersonalHero() {
                 </span>
               </p>
               <div className="hero-actions">
-                <Button asChild className="primary-button">
-                  <a href="#work">
-                    View my work <ArrowDown size={16} />
-                  </a>
-                </Button>
+                <MagneticLink href="#work" className="primary-button">
+                  View my work <ArrowDown size={16} />
+                </MagneticLink>
                 <a
                   className="secondary-button"
                   href={profile.resume}
@@ -464,6 +475,7 @@ export default function App() {
   const [copied, setCopied] = useState(false);
   const [copyFailed, setCopyFailed] = useState(false);
   const menuTrigger = useRef(null);
+  const projectSnapPause = useRef(0);
   const [theme, setTheme] = useState(() => {
     try {
       return localStorage.getItem("portfolio-theme-v2") === "light"
@@ -538,6 +550,35 @@ export default function App() {
       document.body.style.overflow = previousOverflow;
     };
   }, [selected, command, menu]);
+  useEffect(() => {
+    let frame = 0;
+    const syncProjectSnap = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const bounds = document.querySelector(".project-grid")?.getBoundingClientRect();
+        const enabled = performance.now() > projectSnapPause.current && !window.matchMedia("(prefers-reduced-motion: reduce)").matches && bounds && bounds.top <= 120 && bounds.bottom > window.innerHeight + 5;
+        document.documentElement.classList.toggle("project-snap", Boolean(enabled));
+      });
+    };
+    const pauseForNavigation = (event) => {
+      const href = event.target.closest?.("a")?.getAttribute("href");
+      if (href?.startsWith("#")) {
+        projectSnapPause.current = performance.now() + 1400;
+        document.documentElement.classList.remove("project-snap");
+      }
+    };
+    document.addEventListener("click", pauseForNavigation, true);
+    window.addEventListener("scroll", syncProjectSnap, { passive: true });
+    window.addEventListener("resize", syncProjectSnap);
+    syncProjectSnap();
+    return () => {
+      cancelAnimationFrame(frame);
+      document.removeEventListener("click", pauseForNavigation, true);
+      window.removeEventListener("scroll", syncProjectSnap);
+      window.removeEventListener("resize", syncProjectSnap);
+      document.documentElement.classList.remove("project-snap");
+    };
+  }, [filter, query]);
   useEffect(() => () => clearTimeout(copyTimer.current), []);
   async function copyEmail() {
     try {
@@ -562,6 +603,8 @@ export default function App() {
     (p) => filter === "All" || p.category === filter,
   );
   const jump = (id) => {
+    projectSnapPause.current = performance.now() + 1400;
+    document.documentElement.classList.remove("project-snap");
     setMenu(false);
     setCommand(false);
     requestAnimationFrame(() =>
@@ -577,7 +620,6 @@ export default function App() {
       <a className="skip-link" href="#main">
         Skip to content
       </a>
-      <EnergyTrail />
       <motion.div className="reading-progress" style={{ scaleX: progress }} />
       <header className="header">
         <a href="#" className="wordmark" aria-label="Japneet Singh home">
@@ -606,13 +648,7 @@ export default function App() {
             <Command size={16} />
             <span>K</span>
           </button>
-          <button
-            className="icon-button"
-            aria-label={`Switch to ${theme === "light" ? "dark" : "light"} theme`}
-            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-          >
-            {theme === "light" ? <Moon size={17} /> : <Sun size={17} />}
-          </button>
+          <ThemeToggle theme={theme} onChange={setTheme} />
           <a className="resume-link" href={profile.resume} {...external}>
             Resume <ArrowUpRight size={15} />
           </a>
@@ -648,6 +684,7 @@ export default function App() {
       )}
       <main id="main">
         <PersonalHero />
+        <WorkPortal />
         <section id="work" className="section work-section">
           <SectionLabel number="01">SELECTED WORK</SectionLabel>
           <div className="section-heading">
@@ -706,7 +743,7 @@ export default function App() {
                     aria-label={`Read about ${p.title}`}
                     onClick={() => setSelected(p)}
                   >
-                    <ProjectVisual project={p} />
+                    <ProjectMotion><ProjectVisual project={p} /></ProjectMotion>
                     <div className="project-story">
                       <span className="eyebrow">
                         0{projects.indexOf(p) + 1} / {p.category} / {p.year}
@@ -754,7 +791,8 @@ export default function App() {
             </div>
           )}
         </section>
-        <section id="about" className="section about-section">
+        <ChapterTransition kind="panels" eyebrow="02 / THE PERSON BEHIND THE CODE" title="A little logic." accent="A lot of curiosity." target="about" />
+        <RevealSection id="about" className="section about-section">
           <SectionLabel number="02">THE PERSON BEHIND THE CODE</SectionLabel>
           <div className="about-capabilities">
             <div className="about-copy">
@@ -799,7 +837,8 @@ export default function App() {
               <SystemDrawing />
             </div>
           </div>
-        </section>
+        </RevealSection>
+        <ChapterTransition kind="years" eyebrow="03 / EXPERIENCE & DIRECTION" title="Built over time." accent="Still moving forward." target="experience" />
         <RevealSection id="experience" className="section experience-section">
           <SectionLabel number="03">EXPERIENCE & DIRECTION</SectionLabel>
           <div className="section-heading">
@@ -813,11 +852,14 @@ export default function App() {
             {experience.map((e, i) => (
               <motion.article
                 key={e.company}
+                initial={reducedMotion ? false : "hidden"}
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.15 }}
                 variants={{
                   hidden: { opacity: 0, y: 24 },
                   visible: { opacity: 1, y: 0 },
                 }}
-                transition={{ duration: 0.55 }}
+                transition={{ duration: reducedMotion ? 0 : 0.65, delay: reducedMotion ? 0 : i * 0.08, ease: [0.22, 1, 0.36, 1] }}
               >
                 <div className="timeline-date">
                   <span className="timeline-dot" />
@@ -855,6 +897,7 @@ export default function App() {
             </div>
           </div>
         </RevealSection>
+        <ChapterTransition kind="curtain" eyebrow="04 / RESEARCH & COMMUNITY" title="Beyond the code." accent="Into the world." target="recognition" />
         <RevealSection className="section recognition-section" id="recognition">
           <SectionLabel number="04">BEYOND THE DAY JOB</SectionLabel>
           <div className="section-heading">
@@ -865,11 +908,14 @@ export default function App() {
               <motion.div
                 className="recognition-row"
                 key={n}
+                initial={reducedMotion ? false : "hidden"}
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
                 variants={{
                   hidden: { opacity: 0, x: -18 },
                   visible: { opacity: 1, x: 0 },
                 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: reducedMotion ? 0 : 0.6, ease: [0.22, 1, 0.36, 1] }}
               >
                 <span>{n}</span>
                 <h3>{title}</h3>
@@ -952,6 +998,7 @@ export default function App() {
             </details>
           </div>
         </RevealSection>
+        <ChapterTransition kind="iris" eyebrow="05 / THE NEXT CHAPTER" title="Good things start" accent="with a hello." target="contact" />
         <RevealSection id="contact" className="contact-section">
           <div className="contact-top">
             <span className="eyebrow">05 / GET IN TOUCH</span>
