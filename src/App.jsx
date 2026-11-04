@@ -968,7 +968,7 @@ export default function App() {
               <Github size={24} />
               <div>
                 <h3>More on GitHub</h3>
-                <p>Experiments, practice, and public source.</p>
+                <p>Projects and open source contributions.</p>
               </div>
               <a className="text-link" href={profile.github} {...external}>
                 View profile <ArrowUpRight size={17} />

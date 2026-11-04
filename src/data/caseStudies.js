@@ -9,7 +9,7 @@ export const caseStudies = {
       "Implemented storefront and admin application features, authenticated APIs, transactional checkout, and payment-event handling.",
     outcome:
       "A storefront and admin workflow with concurrency tests and browser-test coverage. The live storefront is linked below; the public repository represents a separate React storefront.",
-    evidence: "Live storefront · public storefront source",
+    evidence: "Live storefront · private source code",
   },
   lab: {
     role: "Java full-stack training project",

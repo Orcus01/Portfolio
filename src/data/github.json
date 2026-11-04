@@ -1,65 +1,83 @@
 [
   {
-    "name": "seats-spaces",
-    "description": null,
-    "html_url": "https://github.com/Orcus01/seats-spaces",
-    "homepage": null,
-    "language": "TypeScript",
-    "stargazers_count": 0,
-    "updated_at": "2026-07-27T14:39:43Z"
-  },
-  {
-    "name": "Portfolio",
-    "description": null,
-    "html_url": "https://github.com/Orcus01/Portfolio",
-    "homepage": null,
-    "language": "JavaScript",
-    "stargazers_count": 0,
-    "updated_at": "2025-10-27T18:14:45Z"
-  },
-  {
-    "name": "Alasso-final",
-    "description": null,
-    "html_url": "https://github.com/Orcus01/Alasso-final",
-    "homepage": null,
-    "language": "JavaScript",
-    "stargazers_count": 0,
-    "updated_at": "2025-09-06T18:03:14Z"
-  },
-  {
-    "name": "NeetCode-150",
-    "description": "NeetCode 150 Questions Solved ",
-    "html_url": "https://github.com/Orcus01/NeetCode-150",
-    "homepage": null,
-    "language": "C++",
-    "stargazers_count": 0,
-    "updated_at": "2025-07-15T21:22:44Z"
-  },
-  {
-    "name": "Kissan_Konnect",
-    "description": null,
-    "html_url": "https://github.com/Orcus01/Kissan_Konnect",
-    "homepage": null,
-    "language": "Makefile",
-    "stargazers_count": 0,
-    "updated_at": "2025-01-01T17:44:41Z"
-  },
-  {
     "name": "Raahi",
-    "description": null,
+    "description": "Student interview-experience and placement-guidance platform built with React, Node.js, Express, and MongoDB.",
     "html_url": "https://github.com/Orcus01/Raahi",
     "homepage": null,
     "language": "JavaScript",
     "stargazers_count": 0,
-    "updated_at": "2024-08-28T05:37:52Z"
+    "updated_at": "2026-11-04T11:49:01Z"
   },
   {
-    "name": "JS-Ecommerce",
-    "description": null,
-    "html_url": "https://github.com/Orcus01/JS-Ecommerce",
+    "name": "Kissan_Konnect",
+    "description": "Flutter plant-health app with camera-based diagnosis workflows, weather updates, and Firebase integration.",
+    "html_url": "https://github.com/Orcus01/Kissan_Konnect",
+    "homepage": null,
+    "language": "Makefile",
+    "stargazers_count": 0,
+    "updated_at": "2026-11-04T11:49:00Z"
+  },
+  {
+    "name": "OrcusDash",
+    "description": "Browser multiplayer kart battles with eight arenas, bots, weapons, and keyboard + touch controls.",
+    "html_url": "https://github.com/Orcus01/OrcusDash",
+    "homepage": "https://orcusdash.orcus-pro01.chatgpt.site",
+    "language": "TypeScript",
+    "stargazers_count": 0,
+    "updated_at": "2026-11-04T11:48:59Z"
+  },
+  {
+    "name": "Portfolio",
+    "description": "Personal developer portfolio with project case studies, responsive design, interactive details, and light/dark themes.",
+    "html_url": "https://github.com/Orcus01/Portfolio",
+    "homepage": "https://orcus01.github.io/Portfolio/",
+    "language": "CSS",
+    "stargazers_count": 0,
+    "updated_at": "2026-11-04T11:48:58Z"
+  },
+  {
+    "name": "a2a-java",
+    "description": "Official Java SDK for the Agent2Agent (A2A) Protocol",
+    "html_url": "https://github.com/Orcus01/a2a-java",
+    "homepage": "https://a2aproject.github.io/a2a-java/",
+    "language": null,
+    "stargazers_count": 0,
+    "updated_at": "2026-11-04T11:40:03Z"
+  },
+  {
+    "name": "unitycatalog",
+    "description": "Open, Multi-modal Catalog for Data & AI",
+    "html_url": "https://github.com/Orcus01/unitycatalog",
+    "homepage": "https://unitycatalog.io/",
+    "language": null,
+    "stargazers_count": 0,
+    "updated_at": "2026-11-04T11:24:40Z"
+  },
+  {
+    "name": "react-inp-blame",
+    "description": "Interaction attribution for INP: joins Event Timing and Long Animation Frames to the React fiber tree.",
+    "html_url": "https://github.com/Orcus01/react-inp-blame",
+    "homepage": "https://reactinpblame.com",
+    "language": null,
+    "stargazers_count": 0,
+    "updated_at": "2026-11-04T04:01:22Z"
+  },
+  {
+    "name": "meilisearch-dart",
+    "description": "The Meilisearch API client written for Dart",
+    "html_url": "https://github.com/Orcus01/meilisearch-dart",
+    "homepage": "https://meilisearch.com",
+    "language": null,
+    "stargazers_count": 0,
+    "updated_at": "2026-10-27T17:41:15Z"
+  },
+  {
+    "name": "Orcus01",
+    "description": "Japneet Singh — full-stack development, mobile applications, and multiplayer worlds.",
+    "html_url": "https://github.com/Orcus01/Orcus01",
     "homepage": null,
     "language": null,
     "stargazers_count": 0,
-    "updated_at": "2024-08-28T04:37:34Z"
+    "updated_at": "2026-10-27T14:21:51Z"
   }
 ]

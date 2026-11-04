@@ -4,7 +4,7 @@ export const profile = {
   github: "https://github.com/Orcus01",
   linkedin: "https://www.linkedin.com/in/japneet--singh/",
   resume: `${import.meta.env.BASE_URL}Japneet-Singh-Resume.pdf`,
-  updated: "2026-10-24",
+  updated: "2026-11-04",
 };
 export const projects = [
   {
@@ -12,7 +12,7 @@ export const projects = [
     title: "Seats & Spaces",
     category: "Full stack",
     year: "2026",
-    type: "Personal project",
+    type: "Business website",
     mark: "S&S",
     theme: "commerce",
     subtitle: "Commerce, with the details engineered in.",
@@ -27,8 +27,7 @@ export const projects = [
     ],
     live: "https://seatsandspaces.com.au",
     sourceNote:
-      "Full-stack implementation described in resume. The public seats-spaces repository is a separate React storefront.",
-    github: "https://github.com/Orcus01/seats-spaces",
+      "Commercial project. Source code is private.",
   },
   {
     id: "lab",
