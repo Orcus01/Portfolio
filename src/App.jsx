@@ -1078,7 +1078,7 @@ export default function App() {
               </span>
               <h2 id="detail-title">{selected.title}</h2>
               <p className="dialog-intro">{caseStudies[selected.id].summary}</p>
-              <ProjectVisual project={selected} />
+              <ProjectVisual project={selected} detail />
               <div className="case-meta">
                 <div>
                   <span>MY ROLE</span>
